@@ -6,7 +6,7 @@ const app = {
   },
   fetchKantoPokemon: () => {
     // let limit = 151;
-    let limit = 2;
+    let limit = 5;
     fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`)
       .then(response => response.json())
       .then(allpokemon => {
@@ -46,53 +46,57 @@ const app = {
     pokemonContainer.append(divCard);
     divCard.className = "card";
     divCard.id = `card${pokeData.id}`;
-    
+
     // the popup
     let divCardPoop = document.createElement("div");
     divCard.append(divCardPoop);
     divCardPoop.className = "poopUp";
     divCardPoop.id = `poop${pokeData.id}`;
 
+    let buttonPoopWrapper = document.createElement("div");
+    divCardPoop.append(buttonPoopWrapper);
+    buttonPoopWrapper.className = "buttonPoopWrapper";
+
     let buttonPoop = document.createElement("button");
-    divCardPoop.append(buttonPoop);
-    buttonPoop.className = "poopUpClose";
+    buttonPoopWrapper.append(buttonPoop);
+    buttonPoop.className = "buttonPoop";
     buttonPoop.id = `poobuttonp${pokeData.id}`;
-    buttonPoop.textContent = "Close";
+    buttonPoop.textContent = "❌";
     buttonPoop.setAttribute("onclick", `poop${pokeData.id}()`);
-        
-    let pPoopTitle = document.createElement("p");
-    divCardPoop.append(pPoopTitle);
-    pPoopTitle.className = "poopUpClose";
+
+    let pPoopTitle = document.createElement("span");
+    buttonPoopWrapper.append(pPoopTitle);
+    pPoopTitle.className = "pPoopTitle";
     pPoopTitle.id = `pPoopTitle${pokeData.id}`;
     pPoopTitle.textContent = "Poop Title";
-    
+
     let pPoopContent = document.createElement("p");
     divCardPoop.append(pPoopContent);
     pPoopContent.className = "pPoopContent"
     pPoopContent.id = `pPoopContent${pokeData.id}`;
     pPoopContent.textContent = "Poop Content";
-    
-    let poopScript = document.createElement("script");
-    divCardPoop.append(poopScript);
-    poopScript.innerHTML = `
-    function poop${pokeData.id}() {
-      document.getElementById("poop${pokeData.id}").hidden = true;
-    }
-    
-    `;
+
+    let poopScript = document.getElementById("poopScript");
+    poopScript.innerHTML += `\nfunction poop${pokeData.id}() {
+      document.getElementById("poop${pokeData.id}").classList.toggle("show");
+    }`;
+    // poopScript.innerHTML += `\nfunction poop${pokeData.id}() {
+    //   document.getElementById("poop${pokeData.id}").style.display = "none";
+    // }`;
+
     // the main
     let divCardMain = document.createElement("div");
     divCard.append(divCardMain);
     divCardMain.className = "main";
     divCardMain.id = `main${pokeData.id}`;
-    
+
     let cardMainImg = document.createElement("img");
     divCardMain.append(cardMainImg);
     cardMainImg.className = "main";
     cardMainImg.id = `main${pokeData.id}`;
     cardMainImg.src = `${pokeData.sprites.other["official-artwork"].front_default}`;
     cardMainImg.alt = `${pokeData.name}`;
-    
+
     // name
     let cardMainName = document.createElement("p");
     divCardMain.append(cardMainName);
@@ -108,7 +112,7 @@ const app = {
     cardMainNameInfo.className = "pokeName";
     cardMainNameInfo.id = `cardMainNameInfo${pokeData.id}`;
     cardMainNameInfo.textContent = `${app.capitalizeFirstLetter(pokeData.name)}`;
-    
+
     // id
     let cardMainID = document.createElement("p");
     divCardMain.append(cardMainID);
@@ -124,7 +128,7 @@ const app = {
     cardMainIDInfo.className = "pokeName";
     cardMainIDInfo.id = `cardMainIDInfo${pokeData.id}`;
     cardMainIDInfo.textContent = `${pokeData.id}`;
-    
+
     // Abilities
     let cardMainAbilities = document.createElement("p");
     divCardMain.append(cardMainAbilities);
@@ -140,7 +144,7 @@ const app = {
     cardMainAbilitiesInfo.className = "pokeName";
     cardMainAbilitiesInfo.id = `cardMainAbilitiesInfo${pokeData.id}`;
     cardMainAbilitiesInfo.textContent = `${app.getAbilities(pokeData.abilities)}`;
-    
+
     // Moves
     let cardMainMoves = document.createElement("p");
     divCardMain.append(cardMainMoves);
@@ -155,10 +159,12 @@ const app = {
     cardMainMoves.append(cardMainMovesInfo);
     cardMainMovesInfo.className = "pokeName";
     cardMainMovesInfo.id = `cardMainMovesInfo${pokeData.id}`;
-    cardMainMovesInfo.innerHTML = `${app.getMoves(pokeData.moves, pokeData.id)}`;
+    app.getMoves(pokeData.moves, pokeData.id);
+
+
   },
   poopUp: () => {
-    
+
   },
   getAbilities: (data) => {
     // console.log("getAbilities");
@@ -175,6 +181,8 @@ const app = {
     // return abilities
   },
   getMoves: (data, id) => {
+    console.log("data")
+    console.log(data)
     console.log("getMoves");
     console.log(data[0].move.name);
     console.log(Object.entries(data));
@@ -186,12 +194,25 @@ const app = {
     result = move.join(", ")
     // console.log(typeof result)
     let length = 35;
+    let cardMainMovesInfo = document.getElementById(`cardMainMovesInfo${id}`);
+    
+    
     if (result.length >= length) {
-      resultCut = result.substring(0, length) + `...<button class="btnReadMore" id="pokeData.id">Read more</button>`;
-      pPoopContent = document.getElementById(`pPoopContent${id}`);
-      pPoopContent.innerHTML = `${result}`;
+      document.getElementById(`pPoopContent${id}`).innerHTML = `${result}`;
+      document.getElementById(`pPoopTitle${id}`).innerHTML = `Moves`;
+
+      cardMainMovesInfo.textContent = result.substring(0, length) + `...`;
+      
+      let readmoreButton = document.createElement("button");
+      cardMainMovesInfo.append(readmoreButton);
+      readmoreButton.className = "readmoreButton";
+      readmoreButton.id = `readmoreButton${id}`;
+      readmoreButton.textContent = "Read More";
+      readmoreButton.setAttribute("onclick", `poop${id}()`);
+      
+    } else {
+      cardMainMovesInfo.textContent = result;
     }
-    return resultCut;
   },
   createTypes: (types, ul) => {
     types.forEach(function (type) {
@@ -243,10 +264,6 @@ const app = {
         // console.log(aMedication[propertyName]);
 
         // document.querySelector(".abilities").textContent =;
-        // document.querySelector(".").textContent = data;
-        // document.querySelector(".").textContent = data;
-        // document.querySelector(".").textContent = data;
-        // document.querySelector(".").textContent = data;
       })
       .catch((err) => {
         console.log("Pokemon not found", err)
