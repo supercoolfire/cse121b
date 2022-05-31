@@ -1,0 +1,99 @@
+* {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+#pokemonContainer{
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    background-color: aqua;
+    padding: 10px;
+    max-width: 1000px;
+}
+
+.card {
+    display: block;
+    /* border: 1px solid black; */
+    position: relative;
+    background-color: blueviolet;
+    min-width: 200px;
+    max-width: 200px;
+    min-height: 400px;
+    max-height: 400px;
+    margin: 5px;
+    padding: 1rem;
+    border: 1px dashed red;
+}
+.poopUp {
+    display: block;
+    position: absolute;
+    border: 1px dashed red;
+    top: 5%;
+    left: 5%;
+    /* opacity: 0.5; */
+    width: 90%;
+    height: 60%;
+    overflow:auto;
+    background-color: aqua;
+}
+.poopUpClose{
+    top: 0;
+    position: sticky;
+}
+.pPoopTitle {
+    clear: both;
+    top: 40px;
+    display: block;
+    position: sticky;
+}
+
+.pPoopContent {
+    display: block;
+    /* overflow:auto; */
+}
+
+img {
+    max-width: 100%;
+    border-bottom: 1px solid black ;
+}
+p {
+    padding: 0%;
+    margin: 0;
+    font-size: .8rem;
+}
+.labelName {
+    font-weight: bolder;
+    color: rgb(217, 217, 47);
+}
+
+.pokeName {
+    font-family:sans-serif;
+    color: white;
+}
+
+#pokeName {
+    font-weight: 900;
+    font-size: 1.3rem;
+}
+
+.btnReadMore {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    color: lightblue;
+}
+
+.readmore {
+    height: 200px;
+    overflow: scroll;
+}
+.btnReadMore:hover {
+    font-weight: bold;
+}
+.open {
+    display: block;
+}
+.close {
+    display: none;
+}
