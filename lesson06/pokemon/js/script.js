@@ -6,7 +6,7 @@ const app = {
   },
   fetchKantoPokemon: () => {
     // let limit = 151;
-    let limit = 5;
+    let limit = 12;
     fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`)
       .then(response => response.json())
       .then(allpokemon => {
@@ -75,14 +75,6 @@ const app = {
     pPoopContent.className = "pPoopContent"
     pPoopContent.id = `pPoopContent${pokeData.id}`;
     pPoopContent.textContent = "Poop Content";
-
-    let poopScript = document.getElementById("poopScript");
-    poopScript.innerHTML += `\nfunction poop${pokeData.id}() {
-      document.getElementById("poop${pokeData.id}").classList.toggle("show");
-    }`;
-    // poopScript.innerHTML += `\nfunction poop${pokeData.id}() {
-    //   document.getElementById("poop${pokeData.id}").style.display = "none";
-    // }`;
 
     // the main
     let divCardMain = document.createElement("div");
@@ -160,6 +152,15 @@ const app = {
     cardMainMovesInfo.className = "pokeName";
     cardMainMovesInfo.id = `cardMainMovesInfo${pokeData.id}`;
     app.getMoves(pokeData.moves, pokeData.id);
+
+
+    
+
+    let poopScript = document.getElementById("poopScript");
+    const textNode = document.createTextNode( `\nfunction poop${pokeData.id}() {
+      document.getElementById("poop${pokeData.id}").classList.toggle("show");
+    }`);
+    poopScript.appendChild(textNode);
 
 
   },
