@@ -1,28 +1,94 @@
 const app = {
   init: () => {
-    // document.getElementById("search").addEventListener("click", app.fetchPokemon);
-    app.fetchKantoPokemon();
-    // app.fetchPokemon();
+    document.getElementById("search").addEventListener("click", app.fetchThePokemon2);
+    document.getElementById("pokemonName").addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+        app.fetchThePokemon2();
+      }
+    });
+
+    let offset = 0;
+    let limit = parseInt(document.getElementById("viewBy").value);
+    app.showGallery(offset, limit);
+
+    viewBy.addEventListener("change", () => {
+      limit = parseInt(document.getElementById("viewBy").value);
+      app.showGallery(0, limit);
+    });
+
+    let previous = document.getElementById("previous");
+    previous.addEventListener("click", (limit) => {
+      if (offset <= 0) {
+        offset = 0;
+      } else {
+        offset -= parseInt(document.getElementById("viewBy").value);
+        limit = parseInt(document.getElementById("viewBy").value);
+        app.showGallery(offset, limit);
+      }
+    });
+    let next = document.getElementById("next");
+    next.addEventListener("click", () => {
+      if (limit <= 1126) {
+        offset += parseInt(document.getElementById("viewBy").value);
+        limit = parseInt(document.getElementById("viewBy").value);
+        app.showGallery(offset, limit);
+      }
+    })
+
   },
-  fetchKantoPokemon: () => {
-    
+  showGallery: (offset, limit) => {
+    document.getElementById("pokemonContainer").textContent = "";
+
+    // alert(`https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`)
+    app.fetchThePokemon(`https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`);
+
+
     let poopScript = document.getElementById("poopScript");
-    const textNode = document.createTextNode( `\nfunction poop(a) {
+    const textNode = document.createTextNode(`\nfunction poop(a) {
       document.getElementById(a).classList.toggle("show");
     }`);
     poopScript.appendChild(textNode);
 
+  },
+  fetchThePokemon: (url) => {
     // let limit = 151;
-    let limit = 12;
-    fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`)
-      .then(response => response.json())
+    // let limit = 20;
+    // url = `https://pokeapi.co/api/v2/pokemon?limit=${limit}`
+    // fetch(`https://pokeapi.co/api/v2/pokemon`)
+    fetch(url)
+      .then(response => {
+        // response.json();
+        let resp = response.json();
+        // console.log("fetchThePokemon response")
+        // console.log(response)
+        return resp
+
+      })
       .then(allpokemon => {
-        // console.log("fetchKantoPokemon");
-        // console.log(allpokemon);
+        console.log("fetchThePokemon allpokemon");
+        console.log(allpokemon);
+        // let count = allpokemon.count;
+        // console.log("count: "+count)
+        // let next = allpokemon.next;
+        // let previous = allpokemon.previous;
+        // console.log("next: "+next)
+        // console.log("previous: "+previous)
+        // if (previous != null) {
+        //   document.getElementById("previous").addEventListener("click", app.fetchThePokemon(previous));
+        //   } else {
+        //     document.getElementById("previous").href = "#";
+        //   }
+        // document.getElementById("total").textContent = count;
+        // if (next != null) {
+        // document.getElementById("next").addEventListener("click", app.fetchThePokemon(next));
+        // } else {
+        //   document.getElementById("next").href = "#";
+        // }
+
         allpokemon.results.forEach(pokemon => {
           // app.fetchPokemonData(pokemon);
           app.fetchPokemonData(pokemon);
-        })
+        });
       })
       .catch((err) => {
         console.log("Pokemon not found", err)
@@ -35,22 +101,22 @@ const app = {
       .then(pokeData => {
         // console.log("fetchPokemonData");
         // console.log(pokeData);
-        app.renderPokemon(pokeData);
+        app.renderPokemon(pokeData, "pokemonContainer");
       })
   },
-  renderPokemon: pokeData => {
+  renderPokemon: (pokeData, theContainer) => {
 
-    console.log("renderPokemon");
-    console.log(pokeData);
-    console.log(pokeData.moves[0].move.name);
+    // console.log("renderPokemon");
+    // console.log(pokeData);
+    // console.log(pokeData.moves[0].move.name);
+    // console.log(pokeData.types[0].type.name);
+    // console.log(pokeData.species);
     // document.getElementById("name").textContent = pokeData.name;
     // document.getElementsByClassName("name").textContent = pokeData.name;
 
     // select
-    
+    const pokemonContainer = document.getElementById(theContainer);
 
-
-    const pokemonContainer = document.getElementById("pokemonContainer");
 
     let divCard = document.createElement("div");
     pokemonContainer.append(divCard);
@@ -92,6 +158,7 @@ const app = {
     divCardMain.className = "main";
     divCardMain.id = `main${pokeData.id}`;
 
+    // image
     let cardMainImg = document.createElement("img");
     divCardMain.append(cardMainImg);
     cardMainImg.className = "main";
@@ -147,6 +214,22 @@ const app = {
     cardMainAbilitiesInfo.id = `cardMainAbilitiesInfo${pokeData.id}`;
     cardMainAbilitiesInfo.textContent = `${app.getAbilities(pokeData.abilities)}`;
 
+    // Forms
+    let cardMainForms = document.createElement("p");
+    divCardMain.append(cardMainForms);
+    cardMainForms.className = "cardMainForms";
+    cardMainForms.id = `cardMainForms${pokeData.id}`;
+    let cardMainFormsSpan = document.createElement("span");
+    cardMainForms.append(cardMainFormsSpan);
+    cardMainFormsSpan.className = "labelName";
+    cardMainFormsSpan.id = `cardMainFormsSpan${pokeData.id}`;
+    cardMainFormsSpan.textContent = "Forms: ";
+    let cardMainFormsInfo = document.createElement("span");
+    cardMainForms.append(cardMainFormsInfo);
+    cardMainFormsInfo.className = "pokeName";
+    cardMainFormsInfo.id = `cardMainFormsInfo${pokeData.id}`;
+    app.getForms(pokeData.forms, pokeData.id);
+
     // Moves
     let cardMainMoves = document.createElement("p");
     divCardMain.append(cardMainMoves);
@@ -163,12 +246,37 @@ const app = {
     cardMainMovesInfo.id = `cardMainMovesInfo${pokeData.id}`;
     app.getMoves(pokeData.moves, pokeData.id);
 
+    // species
+    let cardMainSpecies = document.createElement("p");
+    divCardMain.append(cardMainSpecies);
+    cardMainSpecies.className = "cardMainSpecies";
+    cardMainSpecies.id = `cardMainSpecies${pokeData.id}`;
+    let cardMainSpeciesSpan = document.createElement("span");
+    cardMainSpecies.append(cardMainSpeciesSpan);
+    cardMainSpeciesSpan.className = "labelName";
+    cardMainSpeciesSpan.id = `cardMainSpeciesSpan${pokeData.id}`;
+    cardMainSpeciesSpan.textContent = "Species: ";
+    let cardMainSpeciesInfo = document.createElement("span");
+    cardMainSpecies.append(cardMainSpeciesInfo);
+    cardMainSpeciesInfo.className = "pokeName";
+    cardMainSpeciesInfo.id = `cardMainSpeciesInfo${pokeData.id}`;
+    cardMainSpeciesInfo.textContent = `${pokeData.species.name}`;
 
-    
-
-
-  },
-  poopUp: () => {
+    // Types
+    let cardMainTypes = document.createElement("p");
+    divCardMain.append(cardMainTypes);
+    cardMainTypes.className = "cardMainTypes";
+    cardMainTypes.id = `cardMainTypes${pokeData.id}`;
+    let cardMainTypesSpan = document.createElement("span");
+    cardMainTypes.append(cardMainTypesSpan);
+    cardMainTypesSpan.className = "labelName";
+    cardMainTypesSpan.id = `cardMainTypesSpan${pokeData.id}`;
+    cardMainTypesSpan.textContent = "Types: ";
+    let cardMainTypesInfo = document.createElement("span");
+    cardMainTypes.append(cardMainTypesInfo);
+    cardMainTypesInfo.className = "pokeName";
+    cardMainTypesInfo.id = `cardMainTypesInfo${pokeData.id}`;
+    app.getTypes(pokeData.types, pokeData.id);
 
   },
   getAbilities: (data) => {
@@ -181,16 +289,47 @@ const app = {
       // console.log(ability.ability.url); //object of ability
       abilities.push(app.capitalizeFirstLetter(ability.ability.name));
     });
-    // console.log(abilities);
     return abilities.join(", ")
-    // return abilities
+  },
+  getForms: (data, id) => {
+    // console.log("data")
+    // console.log(data)
+    // console.log("getForms");
+    // console.log(data[0].form.name);
+    // console.log(Object.entries(data));
+    newData = Object.entries(data);
+    form = [];
+    newData.map(n => form.push(app.capitalizeFirstLetter(n[1].name)));
+    // formUrl = newData.map(n => console.log(n[1].form.url));
+    // console.log("result: "+result)
+    result = form.join(", ")
+    // console.log(typeof result)
+    let length = 35;
+    let cardMainFormsInfo = document.getElementById(`cardMainFormsInfo${id}`);
+
+    if (result.length >= length) {
+      document.getElementById(`pPoopContent${id}`).innerHTML = `${result}`;
+      document.getElementById(`pPoopTitle${id}`).innerHTML = `Forms`;
+
+      cardMainFormsInfo.textContent = result.substring(0, length) + `...`;
+
+      let readmoreButton = document.createElement("button");
+      cardMainFormsInfo.append(readmoreButton);
+      readmoreButton.className = "readmoreButton";
+      readmoreButton.id = `readmoreButton${id}`;
+      readmoreButton.textContent = "Read More";
+      // readmoreButton.setAttribute("onclick", poop(`poop${id}`));
+      readmoreButton.setAttribute("onclick", `poop('poop${id}')`);
+    } else {
+      cardMainFormsInfo.textContent = result;
+    }
   },
   getMoves: (data, id) => {
-    console.log("data")
-    console.log(data)
-    console.log("getMoves");
-    console.log(data[0].move.name);
-    console.log(Object.entries(data));
+    // console.log("data")
+    // console.log(data)
+    // console.log("getMoves");
+    // console.log(data[0].move.name);
+    // console.log(Object.entries(data));
     newData = Object.entries(data);
     move = [];
     newData.map(n => move.push(app.capitalizeFirstLetter(n[1].move.name)));
@@ -200,14 +339,13 @@ const app = {
     // console.log(typeof result)
     let length = 35;
     let cardMainMovesInfo = document.getElementById(`cardMainMovesInfo${id}`);
-    
-    
+
     if (result.length >= length) {
       document.getElementById(`pPoopContent${id}`).innerHTML = `${result}`;
       document.getElementById(`pPoopTitle${id}`).innerHTML = `Moves`;
 
       cardMainMovesInfo.textContent = result.substring(0, length) + `...`;
-      
+
       let readmoreButton = document.createElement("button");
       cardMainMovesInfo.append(readmoreButton);
       readmoreButton.className = "readmoreButton";
@@ -215,27 +353,49 @@ const app = {
       readmoreButton.textContent = "Read More";
       // readmoreButton.setAttribute("onclick", poop(`poop${id}`));
       readmoreButton.setAttribute("onclick", `poop('poop${id}')`);
-      
     } else {
       cardMainMovesInfo.textContent = result;
     }
   },
-  createTypes: (types, ul) => {
-    types.forEach(function (type) {
-      let typeLi = document.createElement('li');
-      typeLi.innerHTML = type['type']['name'];
-      ul.append(typeLi)
-    })
+  getTypes: (data, id) => {
+    // console.log("data")
+    // console.log(data)
+    // console.log("getTypes");
+    // console.log(data[0].type.name);
+    // console.log(Object.entries(data));
+    newData = Object.entries(data);
+    type = [];
+    newData.map(n => type.push(app.capitalizeFirstLetter(n[1].type.name)));
+    // typeUrl = newData.map(n => console.log(n[1].type.url));
+    // console.log("result: "+result)
+    result = type.join(", ")
+    // console.log(typeof result)
+    let length = 35;
+    let cardMainTypesInfo = document.getElementById(`cardMainTypesInfo${id}`);
+
+    if (result.length >= length) {
+      document.getElementById(`pPoopContent${id}`).innerHTML = `${result}`;
+      document.getElementById(`pPoopTitle${id}`).innerHTML = `Types`;
+
+      cardMainTypesInfo.textContent = result.substring(0, length) + `...`;
+
+      let readmoreButton = document.createElement("button");
+      cardMainTypesInfo.append(readmoreButton);
+      readmoreButton.className = "readmoreButton";
+      readmoreButton.id = `readmoreButton${id}`;
+      readmoreButton.textContent = "Read More";
+      // readmoreButton.setAttribute("onclick", poop(`poop${id}`));
+      readmoreButton.setAttribute("onclick", `poop('poop${id}')`);
+    } else {
+      cardMainTypesInfo.textContent = result;
+    }
   },
-  createPokeImage: (pokeID, containerDiv) => {
-    let pokeImage = document.createElement('img')
-    pokeImage.srcset = `https://pokeres.bastionbot.org/images/pokemon/${pokeID}.png`
-    containerDiv.append(pokeImage);
-  },
-  fetchPokemon: (e) => {
+  fetchThePokemon2: (e) => {
     const name = document.querySelector("#pokemonName").value;
-    // const pokemonName = app.lowerCaseName(name);
-    const pokemonName = "bulbasaur";
+    const pokemonName = app.lowerCaseName(name);
+    // const pokemonName = "bulbasaur";
+    // console.log("pokemonName");
+    // console.log(pokemonName);
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
       .then((response) => {
         let resp = response.json();
@@ -244,34 +404,16 @@ const app = {
         return resp;
       })
       .then((data) => {
-        // console.log("data: ");
+        // console.log("fetchThePokemon2 data");
         // console.log(data);
+        document.getElementById("pokemonContainer").textContent = "";
+        app.renderPokemon(data, "pokemonContainer");
+        // app.renderPokemon(data, "pokemonBox");
 
-        // document.querySelector(".pokeImage").textContent = `<img
-        // src="${data.sprites.other["official-artwork"].front_default}"
-        // alt="${data.name}">`;
-        document.querySelector(".pokeImage").textContent = `${data.sprites.other["official-artwork"].front_default}`;
-        document.querySelector(".name").textContent = data.name;
-        document.querySelector(".weight").textContent = `Weight: ${data.weight}`;
-
-
-        // document.getElementById("abilities").innerHTML += `<li>${}</li>`;
-
-
-        document.getElementById("allMost").innerHTML = ""
-        for (const dataItem in data.abilities[0].availabilities) {
-          dataItem
-          // console.log(dataItem);
-
-          document.getElementById("allMost").innerHTML += `<li>${JSON.stringify(dataItem)}</li>`
-
-        }
-
-        // console.log(aMedication[propertyName]);
-
-        // document.querySelector(".abilities").textContent =;
       })
       .catch((err) => {
+        document.getElementById("pokemonContainer").textContent = "";
+        app.fetchThePokemon();
         console.log("Pokemon not found", err)
       });
   },
@@ -281,6 +423,5 @@ const app = {
   lowerCaseName: (string) => {
     return string.toLowerCase();
   }
-
 }
 app.init();
