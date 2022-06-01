@@ -5,6 +5,13 @@ const app = {
     // app.fetchPokemon();
   },
   fetchKantoPokemon: () => {
+    
+    let poopScript = document.getElementById("poopScript");
+    const textNode = document.createTextNode( `\nfunction poop(a) {
+      document.getElementById(a).classList.toggle("show");
+    }`);
+    poopScript.appendChild(textNode);
+
     // let limit = 151;
     let limit = 12;
     fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`)
@@ -40,6 +47,9 @@ const app = {
     // document.getElementsByClassName("name").textContent = pokeData.name;
 
     // select
+    
+
+
     const pokemonContainer = document.getElementById("pokemonContainer");
 
     let divCard = document.createElement("div");
@@ -62,7 +72,7 @@ const app = {
     buttonPoop.className = "buttonPoop";
     buttonPoop.id = `poobuttonp${pokeData.id}`;
     buttonPoop.textContent = "❌";
-    buttonPoop.setAttribute("onclick", `poop${pokeData.id}()`);
+    buttonPoop.setAttribute("onclick", `poop('poop${pokeData.id}')`);
 
     let pPoopTitle = document.createElement("span");
     buttonPoopWrapper.append(pPoopTitle);
@@ -156,12 +166,6 @@ const app = {
 
     
 
-    let poopScript = document.getElementById("poopScript");
-    const textNode = document.createTextNode( `\nfunction poop${pokeData.id}() {
-      document.getElementById("poop${pokeData.id}").classList.toggle("show");
-    }`);
-    poopScript.appendChild(textNode);
-
 
   },
   poopUp: () => {
@@ -209,7 +213,8 @@ const app = {
       readmoreButton.className = "readmoreButton";
       readmoreButton.id = `readmoreButton${id}`;
       readmoreButton.textContent = "Read More";
-      readmoreButton.setAttribute("onclick", `poop${id}()`);
+      // readmoreButton.setAttribute("onclick", poop(`poop${id}`));
+      readmoreButton.setAttribute("onclick", `poop('poop${id}')`);
       
     } else {
       cardMainMovesInfo.textContent = result;
