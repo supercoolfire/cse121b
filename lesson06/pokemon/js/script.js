@@ -165,6 +165,7 @@ const app = {
     cardMainImg.id = `main${pokeData.id}`;
     cardMainImg.src = `${pokeData.sprites.other["official-artwork"].front_default}`;
     cardMainImg.alt = `${pokeData.name}`;
+    cardMainImg.setAttribute("loading", "lazy")
 
     // name
     let cardMainName = document.createElement("p");
