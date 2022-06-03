@@ -1,864 +1,799 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="description"
-        content="Jayser Pilapil's Pokemon API Gallery, final task in CSE 121B: JavaScript Language at Brigham Young University - Idaho">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="description"
+    content="Jayser Pilapil's Pokemon API Gallery, final task in CSE 121B: JavaScript Language at Brigham Young University - Idaho">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Pokemon Gallery</title>
+  <title>Pokemon Gallery</title>
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" href="images/pokemon.ico" type="image/x-icon">
+
+
+  <link rel="stylesheet"
+    href="http://127.0.0.1:5500/repository/cse121b/lesson06/pokemon/css/style.css?_cacheOverride=1654206970615">
+  <link rel="shortcut icon" href="images/pokemon.ico" type="image/x-icon">
 </head>
 
 <body data-new-gr-c-s-check-loaded="14.1062.0" data-gr-ext-installed="">
-    <main>
-        <h1>Pokemon Gallery</h1>
-        <div class="searchBox"><span>
-                <input type="text" id="pokemonName" placeholder="Pokemon Name">
-                <button id="search">🔍</button>
-                <span class="viewBy">View By
-                    <select name="viewBy" id="viewBy">
-                        <!-- <option value="" selected>-</option> -->
-                        <option value="20" selected="">-</option>
-                        <option value="5">5</option>
-                        <option value="10">10</option>
-                        <option value="20">20</option>
-                        <option value="50">50</option>
-                        <option value="80">80</option>
-                        <option value="100">100</option>
-                    </select></span>
-            </span>
-            <span id="pagination">
-                <button id="previous">◀</button>
-                <button id="next">▶</button>
-            </span>
-        </div>
+  <main>
+    <h1>Pokemon Gallery</h1>
+    <div class="searchBox"><span>
+        <input type="text" id="pokemonName" placeholder="Pokemon Name">
+        <button id="search">🔍</button>
+        <span class="viewBy">View By
+          <select name="viewBy" id="viewBy">
+            <!-- <option value="" selected>-</option> -->
+            <option value="20" selected="">-</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="80">80</option>
+            <option value="100">100</option>
+          </select></span>
+      </span>
+      <span id="pagination">
+        <button id="previous">◀</button>
+        <button id="next">▶</button>
+      </span>
+    </div>
 
-        <div id="pokemonContainer">
-            <div class="card" id="card13">
-                <div class="poopUp" id="poop13">
-                    <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp13"
-                            onclick="poop('poop13')">❌</button><span class="pPoopTitle" id="pPoopTitle13">Moves</span>
-                    </div>
-                    <p class="pPoopContent" id="pPoopContent13">Poison-sting, String-shot, Bug-bite, Electroweb</p>
-                </div>
-                <div class="main" id="main13"><img class="main" id="main13"
-                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/13.png"
-                        data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/13.png"
-                        alt="weedle">
-                    <p class="cardMainName" id="cardMainName13"><span class="labelName" id="cardMainNameSpan13">Name:
-                        </span><span class="pokeName" id="cardMainNameInfo13">Weedle</span></p>
-                    <p class="cardMainID" id="cardMainID13"><span class="labelName" id="cardMainIDSpan13">ID:
-                        </span><span class="pokeName" id="cardMainIDInfo13">13</span></p>
-                    <p class="cardMainAbilities" id="cardMainAbilities13"><span class="labelName"
-                            id="cardMainAbilitiesSpan13">Abilities: </span><span class="pokeName"
-                            id="cardMainAbilitiesInfo13">Shield-dust, Run-away</span></p>
-                    <p class="cardMainForms" id="cardMainForms13"><span class="labelName"
-                            id="cardMainFormsSpan13">Forms: </span><span class="pokeName"
-                            id="cardMainFormsInfo13">Weedle</span></p>
-                    <p class="cardMainMoves" id="cardMainMoves13"><span class="labelName"
-                            id="cardMainMovesSpan13">Moves: </span><span class="pokeName"
-                            id="cardMainMovesInfo13">Poison-sting, String-shot, Bug-bite...<button
-                                class="readmoreButton" id="readmoreButton13" onclick="poop('poop13')">Read
-                                More</button></span></p>
-                    <p class="cardMainSpecies" id="cardMainSpecies13"><span class="labelName"
-                            id="cardMainSpeciesSpan13">Species: </span><span class="pokeName"
-                            id="cardMainSpeciesInfo13">weedle</span></p>
-                    <p class="cardMainTypes" id="cardMainTypes13"><span class="labelName"
-                            id="cardMainTypesSpan13">Types: </span><span class="pokeName" id="cardMainTypesInfo13">Bug,
-                            Poison</span></p>
-                </div>
-            </div>
-            <div class="card" id="card11">
-                <div class="poopUp" id="poop11">
-                    <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp11"
-                            onclick="poop('poop11')">❌</button><span class="pPoopTitle" id="pPoopTitle11">Moves</span>
-                    </div>
-                    <p class="pPoopContent" id="pPoopContent11">String-shot, Harden, Iron-defense, Bug-bite, Electroweb
-                    </p>
-                </div>
-                <div class="main" id="main11"><img class="main" id="main11"
-                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/11.png"
-                        data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/11.png"
-                        alt="metapod">
-                    <p class="cardMainName" id="cardMainName11"><span class="labelName" id="cardMainNameSpan11">Name:
-                        </span><span class="pokeName" id="cardMainNameInfo11">Metapod</span></p>
-                    <p class="cardMainID" id="cardMainID11"><span class="labelName" id="cardMainIDSpan11">ID:
-                        </span><span class="pokeName" id="cardMainIDInfo11">11</span></p>
-                    <p class="cardMainAbilities" id="cardMainAbilities11"><span class="labelName"
-                            id="cardMainAbilitiesSpan11">Abilities: </span><span class="pokeName"
-                            id="cardMainAbilitiesInfo11">Shed-skin</span></p>
-                    <p class="cardMainForms" id="cardMainForms11"><span class="labelName"
-                            id="cardMainFormsSpan11">Forms: </span><span class="pokeName"
-                            id="cardMainFormsInfo11">Metapod</span></p>
-                    <p class="cardMainMoves" id="cardMainMoves11"><span class="labelName"
-                            id="cardMainMovesSpan11">Moves: </span><span class="pokeName"
-                            id="cardMainMovesInfo11">String-shot, Harden, Iron-defense, ...<button
-                                class="readmoreButton" id="readmoreButton11" onclick="poop('poop11')">Read
-                                More</button></span></p>
-                    <p class="cardMainSpecies" id="cardMainSpecies11"><span class="labelName"
-                            id="cardMainSpeciesSpan11">Species: </span><span class="pokeName"
-                            id="cardMainSpeciesInfo11">metapod</span></p>
-                    <p class="cardMainTypes" id="cardMainTypes11"><span class="labelName"
-                            id="cardMainTypesSpan11">Types: </span><span class="pokeName"
-                            id="cardMainTypesInfo11">Bug</span></p>
-                </div>
-            </div>
-            <div class="card" id="card10">
-                <div class="poopUp" id="poop10">
-                    <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp10"
-                            onclick="poop('poop10')">❌</button><span class="pPoopTitle" id="pPoopTitle10">Moves</span>
-                    </div>
-                    <p class="pPoopContent" id="pPoopContent10">Tackle, String-shot, Snore, Bug-bite, Electroweb</p>
-                </div>
-                <div class="main" id="main10"><img class="main" id="main10"
-                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10.png"
-                        data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10.png"
-                        alt="caterpie">
-                    <p class="cardMainName" id="cardMainName10"><span class="labelName" id="cardMainNameSpan10">Name:
-                        </span><span class="pokeName" id="cardMainNameInfo10">Caterpie</span></p>
-                    <p class="cardMainID" id="cardMainID10"><span class="labelName" id="cardMainIDSpan10">ID:
-                        </span><span class="pokeName" id="cardMainIDInfo10">10</span></p>
-                    <p class="cardMainAbilities" id="cardMainAbilities10"><span class="labelName"
-                            id="cardMainAbilitiesSpan10">Abilities: </span><span class="pokeName"
-                            id="cardMainAbilitiesInfo10">Shield-dust, Run-away</span></p>
-                    <p class="cardMainForms" id="cardMainForms10"><span class="labelName"
-                            id="cardMainFormsSpan10">Forms: </span><span class="pokeName"
-                            id="cardMainFormsInfo10">Caterpie</span></p>
-                    <p class="cardMainMoves" id="cardMainMoves10"><span class="labelName"
-                            id="cardMainMovesSpan10">Moves: </span><span class="pokeName"
-                            id="cardMainMovesInfo10">Tackle, String-shot, Snore, Bug-bit...<button
-                                class="readmoreButton" id="readmoreButton10" onclick="poop('poop10')">Read
-                                More</button></span></p>
-                    <p class="cardMainSpecies" id="cardMainSpecies10"><span class="labelName"
-                            id="cardMainSpeciesSpan10">Species: </span><span class="pokeName"
-                            id="cardMainSpeciesInfo10">caterpie</span></p>
-                    <p class="cardMainTypes" id="cardMainTypes10"><span class="labelName"
-                            id="cardMainTypesSpan10">Types: </span><span class="pokeName"
-                            id="cardMainTypesInfo10">Bug</span></p>
-                </div>
-            </div>
-            <div class="card" id="card14">
-                <div class="poopUp" id="poop14">
-                    <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp14"
-                            onclick="poop('poop14')">❌</button><span class="pPoopTitle" id="pPoopTitle14">Moves</span>
-                    </div>
-                    <p class="pPoopContent" id="pPoopContent14">String-shot, Harden, Iron-defense, Bug-bite, Electroweb
-                    </p>
-                </div>
-                <div class="main" id="main14"><img class="main" id="main14"
-                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/14.png"
-                        data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/14.png"
-                        alt="kakuna">
-                    <p class="cardMainName" id="cardMainName14"><span class="labelName" id="cardMainNameSpan14">Name:
-                        </span><span class="pokeName" id="cardMainNameInfo14">Kakuna</span></p>
-                    <p class="cardMainID" id="cardMainID14"><span class="labelName" id="cardMainIDSpan14">ID:
-                        </span><span class="pokeName" id="cardMainIDInfo14">14</span></p>
-                    <p class="cardMainAbilities" id="cardMainAbilities14"><span class="labelName"
-                            id="cardMainAbilitiesSpan14">Abilities: </span><span class="pokeName"
-                            id="cardMainAbilitiesInfo14">Shed-skin</span></p>
-                    <p class="cardMainForms" id="cardMainForms14"><span class="labelName"
-                            id="cardMainFormsSpan14">Forms: </span><span class="pokeName"
-                            id="cardMainFormsInfo14">Kakuna</span></p>
-                    <p class="cardMainMoves" id="cardMainMoves14"><span class="labelName"
-                            id="cardMainMovesSpan14">Moves: </span><span class="pokeName"
-                            id="cardMainMovesInfo14">String-shot, Harden, Iron-defense, ...<button
-                                class="readmoreButton" id="readmoreButton14" onclick="poop('poop14')">Read
-                                More</button></span></p>
-                    <p class="cardMainSpecies" id="cardMainSpecies14"><span class="labelName"
-                            id="cardMainSpeciesSpan14">Species: </span><span class="pokeName"
-                            id="cardMainSpeciesInfo14">kakuna</span></p>
-                    <p class="cardMainTypes" id="cardMainTypes14"><span class="labelName"
-                            id="cardMainTypesSpan14">Types: </span><span class="pokeName" id="cardMainTypesInfo14">Bug,
-                            Poison</span></p>
-                </div>
-            </div>
-            <div class="card" id="card5">
-                <div class="poopUp" id="poop5">
-                    <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp5"
-                            onclick="poop('poop5')">❌</button><span class="pPoopTitle" id="pPoopTitle5">Moves</span>
-                    </div>
-                    <p class="pPoopContent" id="pPoopContent5">Mega-punch, Fire-punch, Thunder-punch, Scratch,
-                        Swords-dance, Cut, Mega-kick, Headbutt, Body-slam, Take-down, Double-edge, Leer, Growl, Ember,
-                        Flamethrower, Submission, Counter, Seismic-toss, Strength, Dragon-rage, Fire-spin, Dig, Toxic,
-                        Rage, Mimic, Double-team, Smokescreen, Defense-curl, Reflect, Bide, Fire-blast, Swift,
-                        Skull-bash, Fury-swipes, Rest, Rock-slide, Slash, Substitute, Snore, Curse, Protect, Scary-face,
-                        Mud-slap, Outrage, Endure, False-swipe, Swagger, Fury-cutter, Attract, Sleep-talk, Return,
-                        Frustration, Dynamic-punch, Dragon-breath, Iron-tail, Metal-claw, Hidden-power, Sunny-day,
-                        Crunch, Rock-smash, Beat-up, Heat-wave, Will-o-wisp, Facade, Focus-punch, Helping-hand,
-                        Brick-break, Secret-power, Weather-ball, Overheat, Rock-tomb, Aerial-ace, Dragon-claw,
-                        Dragon-dance, Natural-gift, Fling, Flare-blitz, Dragon-pulse, Shadow-claw, Fire-fang, Captivate,
-                        Hone-claws, Flame-burst, Flame-charge, Round, Echoed-voice, Incinerate, Acrobatics, Inferno,
-                        Fire-pledge, Work-up, Confide, Power-up-punch</p>
-                </div>
-                <div class="main" id="main5"><img class="main" id="main5"
-                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png"
-                        data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png"
-                        alt="charmeleon">
-                    <p class="cardMainName" id="cardMainName5"><span class="labelName" id="cardMainNameSpan5">Name:
-                        </span><span class="pokeName" id="cardMainNameInfo5">Charmeleon</span></p>
-                    <p class="cardMainID" id="cardMainID5"><span class="labelName" id="cardMainIDSpan5">ID: </span><span
-                            class="pokeName" id="cardMainIDInfo5">5</span></p>
-                    <p class="cardMainAbilities" id="cardMainAbilities5"><span class="labelName"
-                            id="cardMainAbilitiesSpan5">Abilities: </span><span class="pokeName"
-                            id="cardMainAbilitiesInfo5">Blaze, Solar-power</span></p>
-                    <p class="cardMainForms" id="cardMainForms5"><span class="labelName" id="cardMainFormsSpan5">Forms:
-                        </span><span class="pokeName" id="cardMainFormsInfo5">Charmeleon</span></p>
-                    <p class="cardMainMoves" id="cardMainMoves5"><span class="labelName" id="cardMainMovesSpan5">Moves:
-                        </span><span class="pokeName" id="cardMainMovesInfo5">Mega-punch, Fire-punch,
-                            Thunder-pun...<button class="readmoreButton" id="readmoreButton5"
-                                onclick="poop('poop5')">Read More</button></span></p>
-                    <p class="cardMainSpecies" id="cardMainSpecies5"><span class="labelName"
-                            id="cardMainSpeciesSpan5">Species: </span><span class="pokeName"
-                            id="cardMainSpeciesInfo5">charmeleon</span></p>
-                    <p class="cardMainTypes" id="cardMainTypes5"><span class="labelName" id="cardMainTypesSpan5">Types:
-                        </span><span class="pokeName" id="cardMainTypesInfo5">Fire</span></p>
-                </div>
-            </div>
-            <div class="card" id="card1">
-                <div class="poopUp" id="poop1">
-                    <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp1"
-                            onclick="poop('poop1')">❌</button><span class="pPoopTitle" id="pPoopTitle1">Moves</span>
-                    </div>
-                    <p class="pPoopContent" id="pPoopContent1">Razor-wind, Swords-dance, Cut, Bind, Vine-whip, Headbutt,
-                        Tackle, Body-slam, Take-down, Double-edge, Growl, Strength, Mega-drain, Leech-seed, Growth,
-                        Razor-leaf, Solar-beam, Poison-powder, Sleep-powder, Petal-dance, String-shot, Toxic, Rage,
-                        Mimic, Double-team, Defense-curl, Light-screen, Reflect, Bide, Sludge, Skull-bash, Amnesia,
-                        Flash, Rest, Substitute, Snore, Curse, Protect, Sludge-bomb, Mud-slap, Outrage, Giga-drain,
-                        Endure, Charm, False-swipe, Swagger, Fury-cutter, Attract, Sleep-talk, Return, Frustration,
-                        Safeguard, Sweet-scent, Synthesis, Hidden-power, Sunny-day, Rock-smash, Facade, Nature-power,
-                        Helping-hand, Ingrain, Knock-off, Secret-power, Weather-ball, Grass-whistle, Bullet-seed,
-                        Magical-leaf, Natural-gift, Worry-seed, Seed-bomb, Energy-ball, Leaf-storm, Power-whip,
-                        Captivate, Grass-knot, Venoshock, Round, Echoed-voice, Grass-pledge, Work-up, Grassy-terrain,
-                        Confide, Grassy-glide</p>
-                </div>
-                <div class="main" id="main1"><img class="main" id="main1"
-                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
-                        data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
-                        alt="bulbasaur">
-                    <p class="cardMainName" id="cardMainName1"><span class="labelName" id="cardMainNameSpan1">Name:
-                        </span><span class="pokeName" id="cardMainNameInfo1">Bulbasaur</span></p>
-                    <p class="cardMainID" id="cardMainID1"><span class="labelName" id="cardMainIDSpan1">ID: </span><span
-                            class="pokeName" id="cardMainIDInfo1">1</span></p>
-                    <p class="cardMainAbilities" id="cardMainAbilities1"><span class="labelName"
-                            id="cardMainAbilitiesSpan1">Abilities: </span><span class="pokeName"
-                            id="cardMainAbilitiesInfo1">Overgrow, Chlorophyll</span></p>
-                    <p class="cardMainForms" id="cardMainForms1"><span class="labelName" id="cardMainFormsSpan1">Forms:
-                        </span><span class="pokeName" id="cardMainFormsInfo1">Bulbasaur</span></p>
-                    <p class="cardMainMoves" id="cardMainMoves1"><span class="labelName" id="cardMainMovesSpan1">Moves:
-                        </span><span class="pokeName" id="cardMainMovesInfo1">Razor-wind, Swords-dance, Cut,
-                            Bind...<button class="readmoreButton" id="readmoreButton1" onclick="poop('poop1')">Read
-                                More</button></span></p>
-                    <p class="cardMainSpecies" id="cardMainSpecies1"><span class="labelName"
-                            id="cardMainSpeciesSpan1">Species: </span><span class="pokeName"
-                            id="cardMainSpeciesInfo1">bulbasaur</span></p>
-                    <p class="cardMainTypes" id="cardMainTypes1"><span class="labelName" id="cardMainTypesSpan1">Types:
-                        </span><span class="pokeName" id="cardMainTypesInfo1">Grass, Poison</span></p>
-                </div>
-            </div>
-            <div class="card" id="card8">
-                <div class="poopUp" id="poop8">
-                    <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp8"
-                            onclick="poop('poop8')">❌</button><span class="pPoopTitle" id="pPoopTitle8">Moves</span>
-                    </div>
-                    <p class="pPoopContent" id="pPoopContent8">Mega-punch, Ice-punch, Mega-kick, Headbutt, Tackle,
-                        Body-slam, Take-down, Double-edge, Tail-whip, Bite, Water-gun, Hydro-pump, Surf, Ice-beam,
-                        Blizzard, Bubble-beam, Submission, Counter, Seismic-toss, Strength, Dig, Toxic, Rage, Mimic,
-                        Double-team, Withdraw, Defense-curl, Reflect, Bide, Waterfall, Skull-bash, Bubble, Rest,
-                        Rock-slide, Substitute, Snore, Curse, Protect, Mud-slap, Icy-wind, Outrage, Endure, Rollout,
-                        False-swipe, Swagger, Attract, Sleep-talk, Return, Frustration, Dynamic-punch, Rapid-spin,
-                        Iron-tail, Hidden-power, Rain-dance, Rock-smash, Whirlpool, Hail, Facade, Focus-punch,
-                        Helping-hand, Brick-break, Secret-power, Dive, Weather-ball, Rock-tomb, Muddy-water,
-                        Iron-defense, Water-pulse, Gyro-ball, Brine, Natural-gift, Fling, Aura-sphere, Aqua-tail,
-                        Dragon-pulse, Zen-headbutt, Captivate, Round, Scald, Shell-smash, Water-pledge, Work-up,
-                        Confide, Power-up-punch, Flip-turn</p>
-                </div>
-                <div class="main" id="main8"><img class="main" id="main8"
-                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png"
-                        data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png"
-                        alt="wartortle">
-                    <p class="cardMainName" id="cardMainName8"><span class="labelName" id="cardMainNameSpan8">Name:
-                        </span><span class="pokeName" id="cardMainNameInfo8">Wartortle</span></p>
-                    <p class="cardMainID" id="cardMainID8"><span class="labelName" id="cardMainIDSpan8">ID: </span><span
-                            class="pokeName" id="cardMainIDInfo8">8</span></p>
-                    <p class="cardMainAbilities" id="cardMainAbilities8"><span class="labelName"
-                            id="cardMainAbilitiesSpan8">Abilities: </span><span class="pokeName"
-                            id="cardMainAbilitiesInfo8">Torrent, Rain-dish</span></p>
-                    <p class="cardMainForms" id="cardMainForms8"><span class="labelName" id="cardMainFormsSpan8">Forms:
-                        </span><span class="pokeName" id="cardMainFormsInfo8">Wartortle</span></p>
-                    <p class="cardMainMoves" id="cardMainMoves8"><span class="labelName" id="cardMainMovesSpan8">Moves:
-                        </span><span class="pokeName" id="cardMainMovesInfo8">Mega-punch, Ice-punch, Mega-kick,
-                            H...<button class="readmoreButton" id="readmoreButton8" onclick="poop('poop8')">Read
-                                More</button></span></p>
-                    <p class="cardMainSpecies" id="cardMainSpecies8"><span class="labelName"
-                            id="cardMainSpeciesSpan8">Species: </span><span class="pokeName"
-                            id="cardMainSpeciesInfo8">wartortle</span></p>
-                    <p class="cardMainTypes" id="cardMainTypes8"><span class="labelName" id="cardMainTypesSpan8">Types:
-                        </span><span class="pokeName" id="cardMainTypesInfo8">Water</span></p>
-                </div>
-            </div>
-            <div class="card" id="card2">
-                <div class="poopUp" id="poop2">
-                    <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp2"
-                            onclick="poop('poop2')">❌</button><span class="pPoopTitle" id="pPoopTitle2">Moves</span>
-                    </div>
-                    <p class="pPoopContent" id="pPoopContent2">Swords-dance, Cut, Bind, Vine-whip, Headbutt, Tackle,
-                        Body-slam, Take-down, Double-edge, Growl, Strength, Mega-drain, Leech-seed, Growth, Razor-leaf,
-                        Solar-beam, Poison-powder, Sleep-powder, String-shot, Toxic, Rage, Mimic, Double-team,
-                        Defense-curl, Light-screen, Reflect, Bide, Amnesia, Flash, Rest, Substitute, Snore, Curse,
-                        Protect, Sludge-bomb, Mud-slap, Outrage, Giga-drain, Endure, Charm, False-swipe, Swagger,
-                        Fury-cutter, Attract, Sleep-talk, Return, Frustration, Safeguard, Sweet-scent, Synthesis,
-                        Hidden-power, Sunny-day, Rock-smash, Facade, Nature-power, Helping-hand, Knock-off,
-                        Secret-power, Weather-ball, Bullet-seed, Magical-leaf, Natural-gift, Worry-seed, Seed-bomb,
-                        Energy-ball, Leaf-storm, Power-whip, Captivate, Grass-knot, Venoshock, Round, Echoed-voice,
-                        Grass-pledge, Work-up, Grassy-terrain, Confide, Grassy-glide</p>
-                </div>
-                <div class="main" id="main2"><img class="main" id="main2"
-                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png"
-                        data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png"
-                        alt="ivysaur">
-                    <p class="cardMainName" id="cardMainName2"><span class="labelName" id="cardMainNameSpan2">Name:
-                        </span><span class="pokeName" id="cardMainNameInfo2">Ivysaur</span></p>
-                    <p class="cardMainID" id="cardMainID2"><span class="labelName" id="cardMainIDSpan2">ID: </span><span
-                            class="pokeName" id="cardMainIDInfo2">2</span></p>
-                    <p class="cardMainAbilities" id="cardMainAbilities2"><span class="labelName"
-                            id="cardMainAbilitiesSpan2">Abilities: </span><span class="pokeName"
-                            id="cardMainAbilitiesInfo2">Overgrow, Chlorophyll</span></p>
-                    <p class="cardMainForms" id="cardMainForms2"><span class="labelName" id="cardMainFormsSpan2">Forms:
-                        </span><span class="pokeName" id="cardMainFormsInfo2">Ivysaur</span></p>
-                    <p class="cardMainMoves" id="cardMainMoves2"><span class="labelName" id="cardMainMovesSpan2">Moves:
-                        </span><span class="pokeName" id="cardMainMovesInfo2">Swords-dance, Cut, Bind,
-                            Vine-whip,...<button class="readmoreButton" id="readmoreButton2"
-                                onclick="poop('poop2')">Read More</button></span></p>
-                    <p class="cardMainSpecies" id="cardMainSpecies2"><span class="labelName"
-                            id="cardMainSpeciesSpan2">Species: </span><span class="pokeName"
-                            id="cardMainSpeciesInfo2">ivysaur</span></p>
-                    <p class="cardMainTypes" id="cardMainTypes2"><span class="labelName" id="cardMainTypesSpan2">Types:
-                        </span><span class="pokeName" id="cardMainTypesInfo2">Grass, Poison</span></p>
-                </div>
-            </div>
-            <div class="card" id="card12">
-                <div class="poopUp" id="poop12">
-                    <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp12"
-                            onclick="poop('poop12')">❌</button><span class="pPoopTitle" id="pPoopTitle12">Moves</span>
-                    </div>
-                    <p class="pPoopContent" id="pPoopContent12">Razor-wind, Gust, Whirlwind, Headbutt, Tackle,
-                        Take-down, Double-edge, Supersonic, Psybeam, Hyper-beam, Mega-drain, Solar-beam, Poison-powder,
-                        Stun-spore, Sleep-powder, String-shot, Toxic, Confusion, Psychic, Rage, Teleport, Mimic,
-                        Double-team, Harden, Reflect, Bide, Swift, Dream-eater, Flash, Psywave, Rest, Substitute, Thief,
-                        Nightmare, Snore, Curse, Protect, Giga-drain, Endure, Swagger, Attract, Sleep-talk, Return,
-                        Frustration, Safeguard, Baton-pass, Sweet-scent, Hidden-power, Twister, Rain-dance, Sunny-day,
-                        Psych-up, Shadow-ball, Facade, Skill-swap, Secret-power, Air-cutter, Silver-wind, Signal-beam,
-                        Aerial-ace, Iron-defense, Roost, Natural-gift, Tailwind, U-turn, Air-slash, Bug-buzz,
-                        Energy-ball, Giga-impact, Defog, Captivate, Bug-bite, Ominous-wind, Venoshock, Rage-powder,
-                        Quiver-dance, Round, Acrobatics, Struggle-bug, Electroweb, Hurricane, Draining-kiss, Confide,
-                        Infestation, Pollen-puff, Dual-wingbeat</p>
-                </div>
-                <div class="main" id="main12"><img class="main" id="main12"
-                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/12.png"
-                        data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/12.png"
-                        alt="butterfree">
-                    <p class="cardMainName" id="cardMainName12"><span class="labelName" id="cardMainNameSpan12">Name:
-                        </span><span class="pokeName" id="cardMainNameInfo12">Butterfree</span></p>
-                    <p class="cardMainID" id="cardMainID12"><span class="labelName" id="cardMainIDSpan12">ID:
-                        </span><span class="pokeName" id="cardMainIDInfo12">12</span></p>
-                    <p class="cardMainAbilities" id="cardMainAbilities12"><span class="labelName"
-                            id="cardMainAbilitiesSpan12">Abilities: </span><span class="pokeName"
-                            id="cardMainAbilitiesInfo12">Compound-eyes, Tinted-lens</span></p>
-                    <p class="cardMainForms" id="cardMainForms12"><span class="labelName"
-                            id="cardMainFormsSpan12">Forms: </span><span class="pokeName"
-                            id="cardMainFormsInfo12">Butterfree</span></p>
-                    <p class="cardMainMoves" id="cardMainMoves12"><span class="labelName"
-                            id="cardMainMovesSpan12">Moves: </span><span class="pokeName"
-                            id="cardMainMovesInfo12">Razor-wind, Gust, Whirlwind, Headbu...<button
-                                class="readmoreButton" id="readmoreButton12" onclick="poop('poop12')">Read
-                                More</button></span></p>
-                    <p class="cardMainSpecies" id="cardMainSpecies12"><span class="labelName"
-                            id="cardMainSpeciesSpan12">Species: </span><span class="pokeName"
-                            id="cardMainSpeciesInfo12">butterfree</span></p>
-                    <p class="cardMainTypes" id="cardMainTypes12"><span class="labelName"
-                            id="cardMainTypesSpan12">Types: </span><span class="pokeName" id="cardMainTypesInfo12">Bug,
-                            Flying</span></p>
-                </div>
-            </div>
-            <div class="card" id="card15">
-                <div class="poopUp" id="poop15">
-                    <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp15"
-                            onclick="poop('poop15')">❌</button><span class="pPoopTitle" id="pPoopTitle15">Moves</span>
-                    </div>
-                    <p class="pPoopContent" id="pPoopContent15">Swords-dance, Cut, Headbutt, Fury-attack, Take-down,
-                        Double-edge, Twineedle, Pin-missile, Hyper-beam, Peck, Mega-drain, Solar-beam, String-shot,
-                        Toxic, Agility, Rage, Mimic, Double-team, Reflect, Focus-energy, Bide, Swift, Skull-bash, Flash,
-                        Rest, Substitute, Thief, Snore, Curse, Protect, Sludge-bomb, Outrage, Giga-drain, Endure,
-                        False-swipe, Swagger, Fury-cutter, Attract, Sleep-talk, Return, Frustration, Pursuit,
-                        Sweet-scent, Hidden-power, Sunny-day, Rock-smash, Facade, Brick-break, Knock-off, Endeavor,
-                        Secret-power, Air-cutter, Silver-wind, Aerial-ace, Roost, Natural-gift, Tailwind, U-turn,
-                        Payback, Assurance, Toxic-spikes, Poison-jab, X-scissor, Giga-impact, Defog, Captivate,
-                        Bug-bite, Ominous-wind, Venoshock, Round, Acrobatics, Struggle-bug, Electroweb, Drill-run,
-                        Fell-stinger, Confide, Infestation, Laser-focus, Throat-chop, Brutal-swing</p>
-                </div>
-                <div class="main" id="main15"><img class="main" id="main15"
-                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/15.png"
-                        data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/15.png"
-                        alt="beedrill">
-                    <p class="cardMainName" id="cardMainName15"><span class="labelName" id="cardMainNameSpan15">Name:
-                        </span><span class="pokeName" id="cardMainNameInfo15">Beedrill</span></p>
-                    <p class="cardMainID" id="cardMainID15"><span class="labelName" id="cardMainIDSpan15">ID:
-                        </span><span class="pokeName" id="cardMainIDInfo15">15</span></p>
-                    <p class="cardMainAbilities" id="cardMainAbilities15"><span class="labelName"
-                            id="cardMainAbilitiesSpan15">Abilities: </span><span class="pokeName"
-                            id="cardMainAbilitiesInfo15">Swarm, Sniper</span></p>
-                    <p class="cardMainForms" id="cardMainForms15"><span class="labelName"
-                            id="cardMainFormsSpan15">Forms: </span><span class="pokeName"
-                            id="cardMainFormsInfo15">Beedrill</span></p>
-                    <p class="cardMainMoves" id="cardMainMoves15"><span class="labelName"
-                            id="cardMainMovesSpan15">Moves: </span><span class="pokeName"
-                            id="cardMainMovesInfo15">Swords-dance, Cut, Headbutt, Fury-a...<button
-                                class="readmoreButton" id="readmoreButton15" onclick="poop('poop15')">Read
-                                More</button></span></p>
-                    <p class="cardMainSpecies" id="cardMainSpecies15"><span class="labelName"
-                            id="cardMainSpeciesSpan15">Species: </span><span class="pokeName"
-                            id="cardMainSpeciesInfo15">beedrill</span></p>
-                    <p class="cardMainTypes" id="cardMainTypes15"><span class="labelName"
-                            id="cardMainTypesSpan15">Types: </span><span class="pokeName" id="cardMainTypesInfo15">Bug,
-                            Poison</span></p>
-                </div>
-            </div>
-            <div class="card" id="card4">
-                <div class="poopUp" id="poop4">
-                    <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp4"
-                            onclick="poop('poop4')">❌</button><span class="pPoopTitle" id="pPoopTitle4">Moves</span>
-                    </div>
-                    <p class="pPoopContent" id="pPoopContent4">Mega-punch, Fire-punch, Thunder-punch, Scratch,
-                        Swords-dance, Cut, Wing-attack, Mega-kick, Headbutt, Body-slam, Take-down, Double-edge, Leer,
-                        Bite, Growl, Ember, Flamethrower, Submission, Counter, Seismic-toss, Strength, Dragon-rage,
-                        Fire-spin, Dig, Toxic, Rage, Mimic, Double-team, Smokescreen, Defense-curl, Reflect, Bide,
-                        Fire-blast, Swift, Skull-bash, Fury-swipes, Rest, Rock-slide, Slash, Substitute, Snore, Curse,
-                        Protect, Scary-face, Belly-drum, Mud-slap, Outrage, Endure, False-swipe, Swagger, Fury-cutter,
-                        Attract, Sleep-talk, Return, Frustration, Dynamic-punch, Dragon-breath, Iron-tail, Metal-claw,
-                        Hidden-power, Sunny-day, Crunch, Ancient-power, Rock-smash, Beat-up, Heat-wave, Will-o-wisp,
-                        Facade, Focus-punch, Helping-hand, Brick-break, Secret-power, Weather-ball, Air-cutter,
-                        Overheat, Rock-tomb, Aerial-ace, Dragon-claw, Dragon-dance, Natural-gift, Fling, Flare-blitz,
-                        Dragon-pulse, Dragon-rush, Shadow-claw, Fire-fang, Captivate, Hone-claws, Flame-burst,
-                        Flame-charge, Round, Echoed-voice, Incinerate, Acrobatics, Inferno, Fire-pledge, Dragon-tail,
-                        Work-up, Confide, Power-up-punch</p>
-                </div>
-                <div class="main" id="main4"><img class="main" id="main4"
-                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"
-                        data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"
-                        alt="charmander">
-                    <p class="cardMainName" id="cardMainName4"><span class="labelName" id="cardMainNameSpan4">Name:
-                        </span><span class="pokeName" id="cardMainNameInfo4">Charmander</span></p>
-                    <p class="cardMainID" id="cardMainID4"><span class="labelName" id="cardMainIDSpan4">ID: </span><span
-                            class="pokeName" id="cardMainIDInfo4">4</span></p>
-                    <p class="cardMainAbilities" id="cardMainAbilities4"><span class="labelName"
-                            id="cardMainAbilitiesSpan4">Abilities: </span><span class="pokeName"
-                            id="cardMainAbilitiesInfo4">Blaze, Solar-power</span></p>
-                    <p class="cardMainForms" id="cardMainForms4"><span class="labelName" id="cardMainFormsSpan4">Forms:
-                        </span><span class="pokeName" id="cardMainFormsInfo4">Charmander</span></p>
-                    <p class="cardMainMoves" id="cardMainMoves4"><span class="labelName" id="cardMainMovesSpan4">Moves:
-                        </span><span class="pokeName" id="cardMainMovesInfo4">Mega-punch, Fire-punch,
-                            Thunder-pun...<button class="readmoreButton" id="readmoreButton4"
-                                onclick="poop('poop4')">Read More</button></span></p>
-                    <p class="cardMainSpecies" id="cardMainSpecies4"><span class="labelName"
-                            id="cardMainSpeciesSpan4">Species: </span><span class="pokeName"
-                            id="cardMainSpeciesInfo4">charmander</span></p>
-                    <p class="cardMainTypes" id="cardMainTypes4"><span class="labelName" id="cardMainTypesSpan4">Types:
-                        </span><span class="pokeName" id="cardMainTypesInfo4">Fire</span></p>
-                </div>
-            </div>
-            <div class="card" id="card16">
-                <div class="poopUp" id="poop16">
-                    <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp16"
-                            onclick="poop('poop16')">❌</button><span class="pPoopTitle" id="pPoopTitle16">Moves</span>
-                    </div>
-                    <p class="pPoopContent" id="pPoopContent16">Razor-wind, Gust, Wing-attack, Whirlwind, Fly,
-                        Sand-attack, Headbutt, Tackle, Take-down, Double-edge, Toxic, Agility, Quick-attack, Rage,
-                        Mimic, Double-team, Reflect, Bide, Mirror-move, Swift, Sky-attack, Rest, Substitute, Thief,
-                        Snore, Curse, Protect, Feint-attack, Mud-slap, Foresight, Detect, Endure, Swagger, Steel-wing,
-                        Attract, Sleep-talk, Return, Frustration, Pursuit, Hidden-power, Twister, Rain-dance, Sunny-day,
-                        Uproar, Heat-wave, Facade, Secret-power, Feather-dance, Air-cutter, Aerial-ace, Roost,
-                        Natural-gift, Pluck, Tailwind, U-turn, Air-slash, Brave-bird, Defog, Captivate, Ominous-wind,
-                        Round, Work-up, Hurricane, Confide</p>
-                </div>
-                <div class="main" id="main16"><img class="main" id="main16"
-                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/16.png"
-                        data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/16.png"
-                        alt="pidgey">
-                    <p class="cardMainName" id="cardMainName16"><span class="labelName" id="cardMainNameSpan16">Name:
-                        </span><span class="pokeName" id="cardMainNameInfo16">Pidgey</span></p>
-                    <p class="cardMainID" id="cardMainID16"><span class="labelName" id="cardMainIDSpan16">ID:
-                        </span><span class="pokeName" id="cardMainIDInfo16">16</span></p>
-                    <p class="cardMainAbilities" id="cardMainAbilities16"><span class="labelName"
-                            id="cardMainAbilitiesSpan16">Abilities: </span><span class="pokeName"
-                            id="cardMainAbilitiesInfo16">Keen-eye, Tangled-feet, Big-pecks</span></p>
-                    <p class="cardMainForms" id="cardMainForms16"><span class="labelName"
-                            id="cardMainFormsSpan16">Forms: </span><span class="pokeName"
-                            id="cardMainFormsInfo16">Pidgey</span></p>
-                    <p class="cardMainMoves" id="cardMainMoves16"><span class="labelName"
-                            id="cardMainMovesSpan16">Moves: </span><span class="pokeName"
-                            id="cardMainMovesInfo16">Razor-wind, Gust, Wing-attack, Whir...<button
-                                class="readmoreButton" id="readmoreButton16" onclick="poop('poop16')">Read
-                                More</button></span></p>
-                    <p class="cardMainSpecies" id="cardMainSpecies16"><span class="labelName"
-                            id="cardMainSpeciesSpan16">Species: </span><span class="pokeName"
-                            id="cardMainSpeciesInfo16">pidgey</span></p>
-                    <p class="cardMainTypes" id="cardMainTypes16"><span class="labelName"
-                            id="cardMainTypesSpan16">Types: </span><span class="pokeName"
-                            id="cardMainTypesInfo16">Normal, Flying</span></p>
-                </div>
-            </div>
-            <div class="card" id="card17">
-                <div class="poopUp" id="poop17">
-                    <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp17"
-                            onclick="poop('poop17')">❌</button><span class="pPoopTitle" id="pPoopTitle17">Moves</span>
-                    </div>
-                    <p class="pPoopContent" id="pPoopContent17">Razor-wind, Gust, Wing-attack, Whirlwind, Fly,
-                        Sand-attack, Headbutt, Tackle, Take-down, Double-edge, Toxic, Agility, Quick-attack, Rage,
-                        Mimic, Double-team, Reflect, Bide, Mirror-move, Swift, Sky-attack, Rest, Substitute, Thief,
-                        Snore, Curse, Protect, Mud-slap, Detect, Endure, Swagger, Steel-wing, Attract, Sleep-talk,
-                        Return, Frustration, Hidden-power, Twister, Rain-dance, Sunny-day, Uproar, Heat-wave, Facade,
-                        Secret-power, Feather-dance, Air-cutter, Aerial-ace, Roost, Natural-gift, Pluck, Tailwind,
-                        U-turn, Air-slash, Defog, Captivate, Ominous-wind, Round, Work-up, Hurricane, Confide</p>
-                </div>
-                <div class="main" id="main17"><img class="main" id="main17"
-                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/17.png"
-                        data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/17.png"
-                        alt="pidgeotto">
-                    <p class="cardMainName" id="cardMainName17"><span class="labelName" id="cardMainNameSpan17">Name:
-                        </span><span class="pokeName" id="cardMainNameInfo17">Pidgeotto</span></p>
-                    <p class="cardMainID" id="cardMainID17"><span class="labelName" id="cardMainIDSpan17">ID:
-                        </span><span class="pokeName" id="cardMainIDInfo17">17</span></p>
-                    <p class="cardMainAbilities" id="cardMainAbilities17"><span class="labelName"
-                            id="cardMainAbilitiesSpan17">Abilities: </span><span class="pokeName"
-                            id="cardMainAbilitiesInfo17">Keen-eye, Tangled-feet, Big-pecks</span></p>
-                    <p class="cardMainForms" id="cardMainForms17"><span class="labelName"
-                            id="cardMainFormsSpan17">Forms: </span><span class="pokeName"
-                            id="cardMainFormsInfo17">Pidgeotto</span></p>
-                    <p class="cardMainMoves" id="cardMainMoves17"><span class="labelName"
-                            id="cardMainMovesSpan17">Moves: </span><span class="pokeName"
-                            id="cardMainMovesInfo17">Razor-wind, Gust, Wing-attack, Whir...<button
-                                class="readmoreButton" id="readmoreButton17" onclick="poop('poop17')">Read
-                                More</button></span></p>
-                    <p class="cardMainSpecies" id="cardMainSpecies17"><span class="labelName"
-                            id="cardMainSpeciesSpan17">Species: </span><span class="pokeName"
-                            id="cardMainSpeciesInfo17">pidgeotto</span></p>
-                    <p class="cardMainTypes" id="cardMainTypes17"><span class="labelName"
-                            id="cardMainTypesSpan17">Types: </span><span class="pokeName"
-                            id="cardMainTypesInfo17">Normal, Flying</span></p>
-                </div>
-            </div>
-            <div class="card" id="card18">
-                <div class="poopUp" id="poop18">
-                    <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp18"
-                            onclick="poop('poop18')">❌</button><span class="pPoopTitle" id="pPoopTitle18">Moves</span>
-                    </div>
-                    <p class="pPoopContent" id="pPoopContent18">Razor-wind, Gust, Wing-attack, Whirlwind, Fly,
-                        Sand-attack, Headbutt, Tackle, Take-down, Double-edge, Hyper-beam, Toxic, Agility, Quick-attack,
-                        Rage, Mimic, Double-team, Reflect, Bide, Mirror-move, Swift, Sky-attack, Rest, Substitute,
-                        Thief, Snore, Curse, Protect, Mud-slap, Detect, Endure, Swagger, Steel-wing, Attract,
-                        Sleep-talk, Return, Frustration, Hidden-power, Twister, Rain-dance, Sunny-day, Uproar,
-                        Heat-wave, Facade, Secret-power, Feather-dance, Air-cutter, Aerial-ace, Roost, Natural-gift,
-                        Pluck, Tailwind, U-turn, Air-slash, Giga-impact, Defog, Captivate, Ominous-wind, Round, Work-up,
-                        Hurricane, Confide, Laser-focus</p>
-                </div>
-                <div class="main" id="main18"><img class="main" id="main18"
-                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/18.png"
-                        data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/18.png"
-                        alt="pidgeot">
-                    <p class="cardMainName" id="cardMainName18"><span class="labelName" id="cardMainNameSpan18">Name:
-                        </span><span class="pokeName" id="cardMainNameInfo18">Pidgeot</span></p>
-                    <p class="cardMainID" id="cardMainID18"><span class="labelName" id="cardMainIDSpan18">ID:
-                        </span><span class="pokeName" id="cardMainIDInfo18">18</span></p>
-                    <p class="cardMainAbilities" id="cardMainAbilities18"><span class="labelName"
-                            id="cardMainAbilitiesSpan18">Abilities: </span><span class="pokeName"
-                            id="cardMainAbilitiesInfo18">Keen-eye, Tangled-feet, Big-pecks</span></p>
-                    <p class="cardMainForms" id="cardMainForms18"><span class="labelName"
-                            id="cardMainFormsSpan18">Forms: </span><span class="pokeName"
-                            id="cardMainFormsInfo18">Pidgeot</span></p>
-                    <p class="cardMainMoves" id="cardMainMoves18"><span class="labelName"
-                            id="cardMainMovesSpan18">Moves: </span><span class="pokeName"
-                            id="cardMainMovesInfo18">Razor-wind, Gust, Wing-attack, Whir...<button
-                                class="readmoreButton" id="readmoreButton18" onclick="poop('poop18')">Read
-                                More</button></span></p>
-                    <p class="cardMainSpecies" id="cardMainSpecies18"><span class="labelName"
-                            id="cardMainSpeciesSpan18">Species: </span><span class="pokeName"
-                            id="cardMainSpeciesInfo18">pidgeot</span></p>
-                    <p class="cardMainTypes" id="cardMainTypes18"><span class="labelName"
-                            id="cardMainTypesSpan18">Types: </span><span class="pokeName"
-                            id="cardMainTypesInfo18">Normal, Flying</span></p>
-                </div>
-            </div>
-            <div class="card" id="card19">
-                <div class="poopUp" id="poop19">
-                    <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp19"
-                            onclick="poop('poop19')">❌</button><span class="pPoopTitle" id="pPoopTitle19">Moves</span>
-                    </div>
-                    <p class="pPoopContent" id="pPoopContent19">Cut, Headbutt, Tackle, Body-slam, Take-down,
-                        Double-edge, Tail-whip, Bite, Water-gun, Ice-beam, Blizzard, Bubble-beam, Counter, Thunderbolt,
-                        Thunder-wave, Thunder, Dig, Toxic, Quick-attack, Rage, Mimic, Screech, Double-team,
-                        Defense-curl, Focus-energy, Bide, Swift, Skull-bash, Fury-swipes, Rest, Hyper-fang, Super-fang,
-                        Substitute, Thief, Flame-wheel, Snore, Curse, Reversal, Protect, Mud-slap, Icy-wind, Endure,
-                        Swagger, Attract, Sleep-talk, Return, Frustration, Pursuit, Iron-tail, Hidden-power, Rain-dance,
-                        Sunny-day, Crunch, Shadow-ball, Rock-smash, Uproar, Facade, Taunt, Revenge, Endeavor,
-                        Secret-power, Covet, Shock-wave, Natural-gift, Pluck, U-turn, Assurance, Me-first, Last-resort,
-                        Sucker-punch, Zen-headbutt, Captivate, Grass-knot, Charge-beam, Round, Retaliate, Final-gambit,
-                        Work-up, Wild-charge, Confide</p>
-                </div>
-                <div class="main" id="main19"><img class="main" id="main19"
-                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/19.png"
-                        data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/19.png"
-                        alt="rattata">
-                    <p class="cardMainName" id="cardMainName19"><span class="labelName" id="cardMainNameSpan19">Name:
-                        </span><span class="pokeName" id="cardMainNameInfo19">Rattata</span></p>
-                    <p class="cardMainID" id="cardMainID19"><span class="labelName" id="cardMainIDSpan19">ID:
-                        </span><span class="pokeName" id="cardMainIDInfo19">19</span></p>
-                    <p class="cardMainAbilities" id="cardMainAbilities19"><span class="labelName"
-                            id="cardMainAbilitiesSpan19">Abilities: </span><span class="pokeName"
-                            id="cardMainAbilitiesInfo19">Run-away, Guts, Hustle</span></p>
-                    <p class="cardMainForms" id="cardMainForms19"><span class="labelName"
-                            id="cardMainFormsSpan19">Forms: </span><span class="pokeName"
-                            id="cardMainFormsInfo19">Rattata</span></p>
-                    <p class="cardMainMoves" id="cardMainMoves19"><span class="labelName"
-                            id="cardMainMovesSpan19">Moves: </span><span class="pokeName" id="cardMainMovesInfo19">Cut,
-                            Headbutt, Tackle, Body-slam, T...<button class="readmoreButton" id="readmoreButton19"
-                                onclick="poop('poop19')">Read More</button></span></p>
-                    <p class="cardMainSpecies" id="cardMainSpecies19"><span class="labelName"
-                            id="cardMainSpeciesSpan19">Species: </span><span class="pokeName"
-                            id="cardMainSpeciesInfo19">rattata</span></p>
-                    <p class="cardMainTypes" id="cardMainTypes19"><span class="labelName"
-                            id="cardMainTypesSpan19">Types: </span><span class="pokeName"
-                            id="cardMainTypesInfo19">Normal</span></p>
-                </div>
-            </div>
-            <div class="card" id="card20">
-                <div class="poopUp" id="poop20">
-                    <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp20"
-                            onclick="poop('poop20')">❌</button><span class="pPoopTitle" id="pPoopTitle20">Moves</span>
-                    </div>
-                    <p class="pPoopContent" id="pPoopContent20">Swords-dance, Cut, Headbutt, Tackle, Body-slam,
-                        Take-down, Double-edge, Tail-whip, Bite, Roar, Water-gun, Ice-beam, Blizzard, Bubble-beam,
-                        Hyper-beam, Counter, Strength, Thunderbolt, Thunder-wave, Thunder, Dig, Toxic, Quick-attack,
-                        Rage, Mimic, Double-team, Defense-curl, Focus-energy, Bide, Swift, Skull-bash, Fury-swipes,
-                        Rest, Hyper-fang, Super-fang, Substitute, Thief, Snore, Curse, Protect, Scary-face, Mud-slap,
-                        Icy-wind, Endure, Swagger, Attract, Sleep-talk, Return, Frustration, Pursuit, Iron-tail,
-                        Hidden-power, Rain-dance, Sunny-day, Crunch, Shadow-ball, Rock-smash, Uproar, Facade, Taunt,
-                        Endeavor, Secret-power, Covet, Shock-wave, Natural-gift, Pluck, U-turn, Assurance, Last-resort,
-                        Sucker-punch, Giga-impact, Zen-headbutt, Captivate, Grass-knot, Charge-beam, Round, Retaliate,
-                        Work-up, Wild-charge, Confide, Throat-chop, Stomping-tantrum</p>
-                </div>
-                <div class="main" id="main20"><img class="main" id="main20"
-                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/20.png"
-                        data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/20.png"
-                        alt="raticate">
-                    <p class="cardMainName" id="cardMainName20"><span class="labelName" id="cardMainNameSpan20">Name:
-                        </span><span class="pokeName" id="cardMainNameInfo20">Raticate</span></p>
-                    <p class="cardMainID" id="cardMainID20"><span class="labelName" id="cardMainIDSpan20">ID:
-                        </span><span class="pokeName" id="cardMainIDInfo20">20</span></p>
-                    <p class="cardMainAbilities" id="cardMainAbilities20"><span class="labelName"
-                            id="cardMainAbilitiesSpan20">Abilities: </span><span class="pokeName"
-                            id="cardMainAbilitiesInfo20">Run-away, Guts, Hustle</span></p>
-                    <p class="cardMainForms" id="cardMainForms20"><span class="labelName"
-                            id="cardMainFormsSpan20">Forms: </span><span class="pokeName"
-                            id="cardMainFormsInfo20">Raticate</span></p>
-                    <p class="cardMainMoves" id="cardMainMoves20"><span class="labelName"
-                            id="cardMainMovesSpan20">Moves: </span><span class="pokeName"
-                            id="cardMainMovesInfo20">Swords-dance, Cut, Headbutt, Tackle...<button
-                                class="readmoreButton" id="readmoreButton20" onclick="poop('poop20')">Read
-                                More</button></span></p>
-                    <p class="cardMainSpecies" id="cardMainSpecies20"><span class="labelName"
-                            id="cardMainSpeciesSpan20">Species: </span><span class="pokeName"
-                            id="cardMainSpeciesInfo20">raticate</span></p>
-                    <p class="cardMainTypes" id="cardMainTypes20"><span class="labelName"
-                            id="cardMainTypesSpan20">Types: </span><span class="pokeName"
-                            id="cardMainTypesInfo20">Normal</span></p>
-                </div>
-            </div>
-            <div class="card" id="card7">
-                <div class="poopUp" id="poop7">
-                    <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp7"
-                            onclick="poop('poop7')">❌</button><span class="pPoopTitle" id="pPoopTitle7">Moves</span>
-                    </div>
-                    <p class="pPoopContent" id="pPoopContent7">Mega-punch, Ice-punch, Mega-kick, Headbutt, Tackle,
-                        Body-slam, Take-down, Double-edge, Tail-whip, Bite, Mist, Water-gun, Hydro-pump, Surf, Ice-beam,
-                        Blizzard, Bubble-beam, Submission, Counter, Seismic-toss, Strength, Dig, Toxic, Confusion, Rage,
-                        Mimic, Double-team, Withdraw, Defense-curl, Haze, Reflect, Bide, Waterfall, Skull-bash, Bubble,
-                        Rest, Rock-slide, Substitute, Snore, Curse, Flail, Protect, Mud-slap, Foresight, Icy-wind,
-                        Outrage, Endure, Rollout, False-swipe, Swagger, Attract, Sleep-talk, Return, Frustration,
-                        Dynamic-punch, Rapid-spin, Iron-tail, Hidden-power, Rain-dance, Mirror-coat, Rock-smash,
-                        Whirlpool, Fake-out, Hail, Facade, Focus-punch, Helping-hand, Brick-break, Yawn, Refresh,
-                        Secret-power, Dive, Mud-sport, Weather-ball, Rock-tomb, Water-spout, Muddy-water, Iron-defense,
-                        Water-pulse, Gyro-ball, Brine, Natural-gift, Fling, Aqua-ring, Aura-sphere, Aqua-tail,
-                        Dragon-pulse, Zen-headbutt, Captivate, Aqua-jet, Round, Scald, Shell-smash, Water-pledge,
-                        Work-up, Confide, Power-up-punch, Life-dew, Flip-turn</p>
-                </div>
-                <div class="main" id="main7"><img class="main" id="main7"
-                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png"
-                        data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png"
-                        alt="squirtle">
-                    <p class="cardMainName" id="cardMainName7"><span class="labelName" id="cardMainNameSpan7">Name:
-                        </span><span class="pokeName" id="cardMainNameInfo7">Squirtle</span></p>
-                    <p class="cardMainID" id="cardMainID7"><span class="labelName" id="cardMainIDSpan7">ID: </span><span
-                            class="pokeName" id="cardMainIDInfo7">7</span></p>
-                    <p class="cardMainAbilities" id="cardMainAbilities7"><span class="labelName"
-                            id="cardMainAbilitiesSpan7">Abilities: </span><span class="pokeName"
-                            id="cardMainAbilitiesInfo7">Torrent, Rain-dish</span></p>
-                    <p class="cardMainForms" id="cardMainForms7"><span class="labelName" id="cardMainFormsSpan7">Forms:
-                        </span><span class="pokeName" id="cardMainFormsInfo7">Squirtle</span></p>
-                    <p class="cardMainMoves" id="cardMainMoves7"><span class="labelName" id="cardMainMovesSpan7">Moves:
-                        </span><span class="pokeName" id="cardMainMovesInfo7">Mega-punch, Ice-punch, Mega-kick,
-                            H...<button class="readmoreButton" id="readmoreButton7" onclick="poop('poop7')">Read
-                                More</button></span></p>
-                    <p class="cardMainSpecies" id="cardMainSpecies7"><span class="labelName"
-                            id="cardMainSpeciesSpan7">Species: </span><span class="pokeName"
-                            id="cardMainSpeciesInfo7">squirtle</span></p>
-                    <p class="cardMainTypes" id="cardMainTypes7"><span class="labelName" id="cardMainTypesSpan7">Types:
-                        </span><span class="pokeName" id="cardMainTypesInfo7">Water</span></p>
-                </div>
-            </div>
-            <div class="card" id="card6">
-                <div class="poopUp" id="poop6">
-                    <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp6"
-                            onclick="poop('poop6')">❌</button><span class="pPoopTitle" id="pPoopTitle6">Moves</span>
-                    </div>
-                    <p class="pPoopContent" id="pPoopContent6">Mega-punch, Fire-punch, Thunder-punch, Scratch,
-                        Swords-dance, Cut, Wing-attack, Fly, Mega-kick, Headbutt, Body-slam, Take-down, Double-edge,
-                        Leer, Growl, Roar, Ember, Flamethrower, Hyper-beam, Submission, Counter, Seismic-toss, Strength,
-                        Solar-beam, Dragon-rage, Fire-spin, Earthquake, Fissure, Dig, Toxic, Rage, Mimic, Double-team,
-                        Smokescreen, Defense-curl, Reflect, Bide, Fire-blast, Swift, Skull-bash, Fury-swipes, Rest,
-                        Rock-slide, Slash, Substitute, Snore, Curse, Protect, Scary-face, Mud-slap, Outrage, Sandstorm,
-                        Endure, False-swipe, Swagger, Fury-cutter, Steel-wing, Attract, Sleep-talk, Return, Frustration,
-                        Dynamic-punch, Dragon-breath, Iron-tail, Metal-claw, Hidden-power, Twister, Sunny-day, Crunch,
-                        Rock-smash, Beat-up, Heat-wave, Will-o-wisp, Facade, Focus-punch, Helping-hand, Brick-break,
-                        Secret-power, Blaze-kick, Blast-burn, Weather-ball, Air-cutter, Overheat, Rock-tomb, Aerial-ace,
-                        Dragon-claw, Dragon-dance, Roost, Natural-gift, Tailwind, Fling, Flare-blitz, Air-slash,
-                        Dragon-pulse, Focus-blast, Giga-impact, Shadow-claw, Fire-fang, Defog, Captivate, Ominous-wind,
-                        Hone-claws, Flame-burst, Flame-charge, Round, Echoed-voice, Sky-drop, Incinerate, Acrobatics,
-                        Inferno, Fire-pledge, Bulldoze, Dragon-tail, Work-up, Heat-crash, Hurricane, Confide,
-                        Mystical-fire, Power-up-punch, Brutal-swing, Breaking-swipe, Scale-shot, Dual-wingbeat,
-                        Scorching-sands</p>
-                </div>
-                <div class="main" id="main6"><img class="main" id="main6"
-                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png"
-                        data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png"
-                        alt="charizard">
-                    <p class="cardMainName" id="cardMainName6"><span class="labelName" id="cardMainNameSpan6">Name:
-                        </span><span class="pokeName" id="cardMainNameInfo6">Charizard</span></p>
-                    <p class="cardMainID" id="cardMainID6"><span class="labelName" id="cardMainIDSpan6">ID: </span><span
-                            class="pokeName" id="cardMainIDInfo6">6</span></p>
-                    <p class="cardMainAbilities" id="cardMainAbilities6"><span class="labelName"
-                            id="cardMainAbilitiesSpan6">Abilities: </span><span class="pokeName"
-                            id="cardMainAbilitiesInfo6">Blaze, Solar-power</span></p>
-                    <p class="cardMainForms" id="cardMainForms6"><span class="labelName" id="cardMainFormsSpan6">Forms:
-                        </span><span class="pokeName" id="cardMainFormsInfo6">Charizard</span></p>
-                    <p class="cardMainMoves" id="cardMainMoves6"><span class="labelName" id="cardMainMovesSpan6">Moves:
-                        </span><span class="pokeName" id="cardMainMovesInfo6">Mega-punch, Fire-punch,
-                            Thunder-pun...<button class="readmoreButton" id="readmoreButton6"
-                                onclick="poop('poop6')">Read More</button></span></p>
-                    <p class="cardMainSpecies" id="cardMainSpecies6"><span class="labelName"
-                            id="cardMainSpeciesSpan6">Species: </span><span class="pokeName"
-                            id="cardMainSpeciesInfo6">charizard</span></p>
-                    <p class="cardMainTypes" id="cardMainTypes6"><span class="labelName" id="cardMainTypesSpan6">Types:
-                        </span><span class="pokeName" id="cardMainTypesInfo6">Fire, Flying</span></p>
-                </div>
-            </div>
-            <div class="card" id="card3">
-                <div class="poopUp" id="poop3">
-                    <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp3"
-                            onclick="poop('poop3')">❌</button><span class="pPoopTitle" id="pPoopTitle3">Moves</span>
-                    </div>
-                    <p class="pPoopContent" id="pPoopContent3">Swords-dance, Cut, Bind, Vine-whip, Headbutt, Tackle,
-                        Body-slam, Take-down, Double-edge, Growl, Roar, Hyper-beam, Strength, Mega-drain, Leech-seed,
-                        Growth, Razor-leaf, Solar-beam, Poison-powder, Sleep-powder, Petal-dance, String-shot,
-                        Earthquake, Toxic, Rage, Mimic, Double-team, Defense-curl, Light-screen, Reflect, Bide, Amnesia,
-                        Flash, Rest, Substitute, Snore, Curse, Protect, Sludge-bomb, Mud-slap, Outrage, Giga-drain,
-                        Endure, Charm, False-swipe, Swagger, Fury-cutter, Attract, Sleep-talk, Return, Frustration,
-                        Safeguard, Sweet-scent, Synthesis, Hidden-power, Sunny-day, Rock-smash, Facade, Nature-power,
-                        Helping-hand, Knock-off, Secret-power, Weather-ball, Bullet-seed, Block, Frenzy-plant,
-                        Magical-leaf, Natural-gift, Worry-seed, Seed-bomb, Energy-ball, Earth-power, Giga-impact,
-                        Rock-climb, Leaf-storm, Power-whip, Captivate, Grass-knot, Venoshock, Round, Echoed-voice,
-                        Grass-pledge, Bulldoze, Work-up, Petal-blizzard, Grassy-terrain, Confide, Stomping-tantrum,
-                        Grassy-glide, Terrain-pulse</p>
-                </div>
-                <div class="main" id="main3"><img class="main" id="main3"
-                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png"
-                        data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png"
-                        alt="venusaur">
-                    <p class="cardMainName" id="cardMainName3"><span class="labelName" id="cardMainNameSpan3">Name:
-                        </span><span class="pokeName" id="cardMainNameInfo3">Venusaur</span></p>
-                    <p class="cardMainID" id="cardMainID3"><span class="labelName" id="cardMainIDSpan3">ID: </span><span
-                            class="pokeName" id="cardMainIDInfo3">3</span></p>
-                    <p class="cardMainAbilities" id="cardMainAbilities3"><span class="labelName"
-                            id="cardMainAbilitiesSpan3">Abilities: </span><span class="pokeName"
-                            id="cardMainAbilitiesInfo3">Overgrow, Chlorophyll</span></p>
-                    <p class="cardMainForms" id="cardMainForms3"><span class="labelName" id="cardMainFormsSpan3">Forms:
-                        </span><span class="pokeName" id="cardMainFormsInfo3">Venusaur</span></p>
-                    <p class="cardMainMoves" id="cardMainMoves3"><span class="labelName" id="cardMainMovesSpan3">Moves:
-                        </span><span class="pokeName" id="cardMainMovesInfo3">Swords-dance, Cut, Bind,
-                            Vine-whip,...<button class="readmoreButton" id="readmoreButton3"
-                                onclick="poop('poop3')">Read More</button></span></p>
-                    <p class="cardMainSpecies" id="cardMainSpecies3"><span class="labelName"
-                            id="cardMainSpeciesSpan3">Species: </span><span class="pokeName"
-                            id="cardMainSpeciesInfo3">venusaur</span></p>
-                    <p class="cardMainTypes" id="cardMainTypes3"><span class="labelName" id="cardMainTypesSpan3">Types:
-                        </span><span class="pokeName" id="cardMainTypesInfo3">Grass, Poison</span></p>
-                </div>
-            </div>
-            <div class="card" id="card9">
-                <div class="poopUp" id="poop9">
-                    <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp9"
-                            onclick="poop('poop9')">❌</button><span class="pPoopTitle" id="pPoopTitle9">Moves</span>
-                    </div>
-                    <p class="pPoopContent" id="pPoopContent9">Mega-punch, Ice-punch, Mega-kick, Headbutt, Tackle,
-                        Body-slam, Take-down, Double-edge, Tail-whip, Bite, Roar, Water-gun, Hydro-pump, Surf, Ice-beam,
-                        Blizzard, Bubble-beam, Hyper-beam, Submission, Counter, Seismic-toss, Strength, Earthquake,
-                        Fissure, Dig, Toxic, Rage, Mimic, Double-team, Withdraw, Defense-curl, Reflect, Bide, Waterfall,
-                        Skull-bash, Bubble, Rest, Rock-slide, Substitute, Snore, Curse, Protect, Mud-slap, Icy-wind,
-                        Outrage, Endure, Rollout, False-swipe, Swagger, Attract, Sleep-talk, Return, Frustration,
-                        Dynamic-punch, Rapid-spin, Iron-tail, Hidden-power, Rain-dance, Crunch, Rock-smash, Whirlpool,
-                        Fake-out, Hail, Facade, Focus-punch, Helping-hand, Brick-break, Secret-power, Dive,
-                        Hydro-cannon, Weather-ball, Rock-tomb, Signal-beam, Muddy-water, Iron-defense, Water-pulse,
-                        Gyro-ball, Brine, Natural-gift, Fling, Aura-sphere, Dark-pulse, Aqua-tail, Dragon-pulse,
-                        Focus-blast, Giga-impact, Avalanche, Zen-headbutt, Flash-cannon, Rock-climb, Captivate,
-                        Aqua-jet, Smack-down, Round, Scald, Shell-smash, Water-pledge, Bulldoze, Dragon-tail, Work-up,
-                        Confide, Power-up-punch, Liquidation, Body-press, Terrain-pulse, Flip-turn</p>
-                </div>
-                <div class="main" id="main9"><img class="main" id="main9"
-                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png"
-                        data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png"
-                        alt="blastoise">
-                    <p class="cardMainName" id="cardMainName9"><span class="labelName" id="cardMainNameSpan9">Name:
-                        </span><span class="pokeName" id="cardMainNameInfo9">Blastoise</span></p>
-                    <p class="cardMainID" id="cardMainID9"><span class="labelName" id="cardMainIDSpan9">ID: </span><span
-                            class="pokeName" id="cardMainIDInfo9">9</span></p>
-                    <p class="cardMainAbilities" id="cardMainAbilities9"><span class="labelName"
-                            id="cardMainAbilitiesSpan9">Abilities: </span><span class="pokeName"
-                            id="cardMainAbilitiesInfo9">Torrent, Rain-dish</span></p>
-                    <p class="cardMainForms" id="cardMainForms9"><span class="labelName" id="cardMainFormsSpan9">Forms:
-                        </span><span class="pokeName" id="cardMainFormsInfo9">Blastoise</span></p>
-                    <p class="cardMainMoves" id="cardMainMoves9"><span class="labelName" id="cardMainMovesSpan9">Moves:
-                        </span><span class="pokeName" id="cardMainMovesInfo9">Mega-punch, Ice-punch, Mega-kick,
-                            H...<button class="readmoreButton" id="readmoreButton9" onclick="poop('poop9')">Read
-                                More</button></span></p>
-                    <p class="cardMainSpecies" id="cardMainSpecies9"><span class="labelName"
-                            id="cardMainSpeciesSpan9">Species: </span><span class="pokeName"
-                            id="cardMainSpeciesInfo9">blastoise</span></p>
-                    <p class="cardMainTypes" id="cardMainTypes9"><span class="labelName" id="cardMainTypesSpan9">Types:
-                        </span><span class="pokeName" id="cardMainTypesInfo9">Water</span></p>
-                </div>
-            </div>
+    <div id="pokemonContainer">
+      <div class="card" id="card1">
+        <div class="poopUp" id="poop1">
+          <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp1"
+              onclick="poop('poop1')">❌</button><span class="pPoopTitle" id="pPoopTitle1">Moves</span>
+          </div>
+          <p class="pPoopContent" id="pPoopContent1">Razor-wind, Swords-dance, Cut, Bind, Vine-whip, Headbutt,
+            Tackle, Body-slam, Take-down, Double-edge, Growl, Strength, Mega-drain, Leech-seed, Growth,
+            Razor-leaf, Solar-beam, Poison-powder, Sleep-powder, Petal-dance, String-shot, Toxic, Rage,
+            Mimic, Double-team, Defense-curl, Light-screen, Reflect, Bide, Sludge, Skull-bash, Amnesia,
+            Flash, Rest, Substitute, Snore, Curse, Protect, Sludge-bomb, Mud-slap, Outrage, Giga-drain,
+            Endure, Charm, False-swipe, Swagger, Fury-cutter, Attract, Sleep-talk, Return, Frustration,
+            Safeguard, Sweet-scent, Synthesis, Hidden-power, Sunny-day, Rock-smash, Facade, Nature-power,
+            Helping-hand, Ingrain, Knock-off, Secret-power, Weather-ball, Grass-whistle, Bullet-seed,
+            Magical-leaf, Natural-gift, Worry-seed, Seed-bomb, Energy-ball, Leaf-storm, Power-whip,
+            Captivate, Grass-knot, Venoshock, Round, Echoed-voice, Grass-pledge, Work-up, Grassy-terrain,
+            Confide, Grassy-glide</p>
         </div>
+        <div class="main" id="main1"><img
+            data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
+            class="main" id="main1" src="images/pokePlacHold.jpg" alt="bulbasaur">
+          <p class="cardMainName" id="cardMainName1"><span class="labelName" id="cardMainNameSpan1">Name:
+            </span><span class="pokeName" id="cardMainNameInfo1">Bulbasaur</span></p>
+          <p class="cardMainID" id="cardMainID1"><span class="labelName" id="cardMainIDSpan1">ID: </span><span
+              class="pokeName" id="cardMainIDInfo1">1</span></p>
+          <p class="cardMainAbilities" id="cardMainAbilities1"><span class="labelName"
+              id="cardMainAbilitiesSpan1">Abilities: </span><span class="pokeName" id="cardMainAbilitiesInfo1">Overgrow,
+              Chlorophyll</span></p>
+          <p class="cardMainForms" id="cardMainForms1"><span class="labelName" id="cardMainFormsSpan1">Forms:
+            </span><span class="pokeName" id="cardMainFormsInfo1">Bulbasaur</span></p>
+          <p class="cardMainMoves" id="cardMainMoves1"><span class="labelName" id="cardMainMovesSpan1">Moves:
+            </span><span class="pokeName" id="cardMainMovesInfo1">Razor-wind, Swords-dance, Cut,
+              Bind...<button class="readmoreButton" id="readmoreButton1" onclick="poop('poop1')">Read
+                More</button></span></p>
+          <p class="cardMainSpecies" id="cardMainSpecies1"><span class="labelName" id="cardMainSpeciesSpan1">Species:
+            </span><span class="pokeName" id="cardMainSpeciesInfo1">bulbasaur</span></p>
+          <p class="cardMainTypes" id="cardMainTypes1"><span class="labelName" id="cardMainTypesSpan1">Types:
+            </span><span class="pokeName" id="cardMainTypesInfo1">Grass, Poison</span></p>
+        </div>
+      </div>
+      <div class="card" id="card2">
+        <div class="poopUp" id="poop2">
+          <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp2"
+              onclick="poop('poop2')">❌</button><span class="pPoopTitle" id="pPoopTitle2">Moves</span>
+          </div>
+          <p class="pPoopContent" id="pPoopContent2">Swords-dance, Cut, Bind, Vine-whip, Headbutt, Tackle,
+            Body-slam, Take-down, Double-edge, Growl, Strength, Mega-drain, Leech-seed, Growth, Razor-leaf,
+            Solar-beam, Poison-powder, Sleep-powder, String-shot, Toxic, Rage, Mimic, Double-team,
+            Defense-curl, Light-screen, Reflect, Bide, Amnesia, Flash, Rest, Substitute, Snore, Curse,
+            Protect, Sludge-bomb, Mud-slap, Outrage, Giga-drain, Endure, Charm, False-swipe, Swagger,
+            Fury-cutter, Attract, Sleep-talk, Return, Frustration, Safeguard, Sweet-scent, Synthesis,
+            Hidden-power, Sunny-day, Rock-smash, Facade, Nature-power, Helping-hand, Knock-off,
+            Secret-power, Weather-ball, Bullet-seed, Magical-leaf, Natural-gift, Worry-seed, Seed-bomb,
+            Energy-ball, Leaf-storm, Power-whip, Captivate, Grass-knot, Venoshock, Round, Echoed-voice,
+            Grass-pledge, Work-up, Grassy-terrain, Confide, Grassy-glide</p>
+        </div>
+        <div class="main" id="main2"><img
+            data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png"
+            class="main" id="main2" src="images/pokePlacHold.jpg" alt="ivysaur">
+          <p class="cardMainName" id="cardMainName2"><span class="labelName" id="cardMainNameSpan2">Name:
+            </span><span class="pokeName" id="cardMainNameInfo2">Ivysaur</span></p>
+          <p class="cardMainID" id="cardMainID2"><span class="labelName" id="cardMainIDSpan2">ID: </span><span
+              class="pokeName" id="cardMainIDInfo2">2</span></p>
+          <p class="cardMainAbilities" id="cardMainAbilities2"><span class="labelName"
+              id="cardMainAbilitiesSpan2">Abilities: </span><span class="pokeName" id="cardMainAbilitiesInfo2">Overgrow,
+              Chlorophyll</span></p>
+          <p class="cardMainForms" id="cardMainForms2"><span class="labelName" id="cardMainFormsSpan2">Forms:
+            </span><span class="pokeName" id="cardMainFormsInfo2">Ivysaur</span></p>
+          <p class="cardMainMoves" id="cardMainMoves2"><span class="labelName" id="cardMainMovesSpan2">Moves:
+            </span><span class="pokeName" id="cardMainMovesInfo2">Swords-dance, Cut, Bind,
+              Vine-whip,...<button class="readmoreButton" id="readmoreButton2" onclick="poop('poop2')">Read
+                More</button></span></p>
+          <p class="cardMainSpecies" id="cardMainSpecies2"><span class="labelName" id="cardMainSpeciesSpan2">Species:
+            </span><span class="pokeName" id="cardMainSpeciesInfo2">ivysaur</span></p>
+          <p class="cardMainTypes" id="cardMainTypes2"><span class="labelName" id="cardMainTypesSpan2">Types:
+            </span><span class="pokeName" id="cardMainTypesInfo2">Grass, Poison</span></p>
+        </div>
+      </div>
+      <div class="card" id="card3">
+        <div class="poopUp" id="poop3">
+          <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp3"
+              onclick="poop('poop3')">❌</button><span class="pPoopTitle" id="pPoopTitle3">Moves</span>
+          </div>
+          <p class="pPoopContent" id="pPoopContent3">Swords-dance, Cut, Bind, Vine-whip, Headbutt, Tackle,
+            Body-slam, Take-down, Double-edge, Growl, Roar, Hyper-beam, Strength, Mega-drain, Leech-seed,
+            Growth, Razor-leaf, Solar-beam, Poison-powder, Sleep-powder, Petal-dance, String-shot,
+            Earthquake, Toxic, Rage, Mimic, Double-team, Defense-curl, Light-screen, Reflect, Bide, Amnesia,
+            Flash, Rest, Substitute, Snore, Curse, Protect, Sludge-bomb, Mud-slap, Outrage, Giga-drain,
+            Endure, Charm, False-swipe, Swagger, Fury-cutter, Attract, Sleep-talk, Return, Frustration,
+            Safeguard, Sweet-scent, Synthesis, Hidden-power, Sunny-day, Rock-smash, Facade, Nature-power,
+            Helping-hand, Knock-off, Secret-power, Weather-ball, Bullet-seed, Block, Frenzy-plant,
+            Magical-leaf, Natural-gift, Worry-seed, Seed-bomb, Energy-ball, Earth-power, Giga-impact,
+            Rock-climb, Leaf-storm, Power-whip, Captivate, Grass-knot, Venoshock, Round, Echoed-voice,
+            Grass-pledge, Bulldoze, Work-up, Petal-blizzard, Grassy-terrain, Confide, Stomping-tantrum,
+            Grassy-glide, Terrain-pulse</p>
+        </div>
+        <div class="main" id="main3"><img
+            data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png"
+            class="main" id="main3" src="images/pokePlacHold.jpg" alt="venusaur">
+          <p class="cardMainName" id="cardMainName3"><span class="labelName" id="cardMainNameSpan3">Name:
+            </span><span class="pokeName" id="cardMainNameInfo3">Venusaur</span></p>
+          <p class="cardMainID" id="cardMainID3"><span class="labelName" id="cardMainIDSpan3">ID: </span><span
+              class="pokeName" id="cardMainIDInfo3">3</span></p>
+          <p class="cardMainAbilities" id="cardMainAbilities3"><span class="labelName"
+              id="cardMainAbilitiesSpan3">Abilities: </span><span class="pokeName" id="cardMainAbilitiesInfo3">Overgrow,
+              Chlorophyll</span></p>
+          <p class="cardMainForms" id="cardMainForms3"><span class="labelName" id="cardMainFormsSpan3">Forms:
+            </span><span class="pokeName" id="cardMainFormsInfo3">Venusaur</span></p>
+          <p class="cardMainMoves" id="cardMainMoves3"><span class="labelName" id="cardMainMovesSpan3">Moves:
+            </span><span class="pokeName" id="cardMainMovesInfo3">Swords-dance, Cut, Bind,
+              Vine-whip,...<button class="readmoreButton" id="readmoreButton3" onclick="poop('poop3')">Read
+                More</button></span></p>
+          <p class="cardMainSpecies" id="cardMainSpecies3"><span class="labelName" id="cardMainSpeciesSpan3">Species:
+            </span><span class="pokeName" id="cardMainSpeciesInfo3">venusaur</span></p>
+          <p class="cardMainTypes" id="cardMainTypes3"><span class="labelName" id="cardMainTypesSpan3">Types:
+            </span><span class="pokeName" id="cardMainTypesInfo3">Grass, Poison</span></p>
+        </div>
+      </div>
+      <div class="card" id="card4">
+        <div class="poopUp" id="poop4">
+          <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp4"
+              onclick="poop('poop4')">❌</button><span class="pPoopTitle" id="pPoopTitle4">Moves</span>
+          </div>
+          <p class="pPoopContent" id="pPoopContent4">Mega-punch, Fire-punch, Thunder-punch, Scratch,
+            Swords-dance, Cut, Wing-attack, Mega-kick, Headbutt, Body-slam, Take-down, Double-edge, Leer,
+            Bite, Growl, Ember, Flamethrower, Submission, Counter, Seismic-toss, Strength, Dragon-rage,
+            Fire-spin, Dig, Toxic, Rage, Mimic, Double-team, Smokescreen, Defense-curl, Reflect, Bide,
+            Fire-blast, Swift, Skull-bash, Fury-swipes, Rest, Rock-slide, Slash, Substitute, Snore, Curse,
+            Protect, Scary-face, Belly-drum, Mud-slap, Outrage, Endure, False-swipe, Swagger, Fury-cutter,
+            Attract, Sleep-talk, Return, Frustration, Dynamic-punch, Dragon-breath, Iron-tail, Metal-claw,
+            Hidden-power, Sunny-day, Crunch, Ancient-power, Rock-smash, Beat-up, Heat-wave, Will-o-wisp,
+            Facade, Focus-punch, Helping-hand, Brick-break, Secret-power, Weather-ball, Air-cutter,
+            Overheat, Rock-tomb, Aerial-ace, Dragon-claw, Dragon-dance, Natural-gift, Fling, Flare-blitz,
+            Dragon-pulse, Dragon-rush, Shadow-claw, Fire-fang, Captivate, Hone-claws, Flame-burst,
+            Flame-charge, Round, Echoed-voice, Incinerate, Acrobatics, Inferno, Fire-pledge, Dragon-tail,
+            Work-up, Confide, Power-up-punch</p>
+        </div>
+        <div class="main" id="main4"><img
+            data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"
+            class="main" id="main4" src="images/pokePlacHold.jpg" alt="charmander">
+          <p class="cardMainName" id="cardMainName4"><span class="labelName" id="cardMainNameSpan4">Name:
+            </span><span class="pokeName" id="cardMainNameInfo4">Charmander</span></p>
+          <p class="cardMainID" id="cardMainID4"><span class="labelName" id="cardMainIDSpan4">ID: </span><span
+              class="pokeName" id="cardMainIDInfo4">4</span></p>
+          <p class="cardMainAbilities" id="cardMainAbilities4"><span class="labelName"
+              id="cardMainAbilitiesSpan4">Abilities: </span><span class="pokeName" id="cardMainAbilitiesInfo4">Blaze,
+              Solar-power</span></p>
+          <p class="cardMainForms" id="cardMainForms4"><span class="labelName" id="cardMainFormsSpan4">Forms:
+            </span><span class="pokeName" id="cardMainFormsInfo4">Charmander</span></p>
+          <p class="cardMainMoves" id="cardMainMoves4"><span class="labelName" id="cardMainMovesSpan4">Moves:
+            </span><span class="pokeName" id="cardMainMovesInfo4">Mega-punch, Fire-punch,
+              Thunder-pun...<button class="readmoreButton" id="readmoreButton4" onclick="poop('poop4')">Read
+                More</button></span></p>
+          <p class="cardMainSpecies" id="cardMainSpecies4"><span class="labelName" id="cardMainSpeciesSpan4">Species:
+            </span><span class="pokeName" id="cardMainSpeciesInfo4">charmander</span></p>
+          <p class="cardMainTypes" id="cardMainTypes4"><span class="labelName" id="cardMainTypesSpan4">Types:
+            </span><span class="pokeName" id="cardMainTypesInfo4">Fire</span></p>
+        </div>
+      </div>
+      <div class="card" id="card5">
+        <div class="poopUp" id="poop5">
+          <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp5"
+              onclick="poop('poop5')">❌</button><span class="pPoopTitle" id="pPoopTitle5">Moves</span>
+          </div>
+          <p class="pPoopContent" id="pPoopContent5">Mega-punch, Fire-punch, Thunder-punch, Scratch,
+            Swords-dance, Cut, Mega-kick, Headbutt, Body-slam, Take-down, Double-edge, Leer, Growl, Ember,
+            Flamethrower, Submission, Counter, Seismic-toss, Strength, Dragon-rage, Fire-spin, Dig, Toxic,
+            Rage, Mimic, Double-team, Smokescreen, Defense-curl, Reflect, Bide, Fire-blast, Swift,
+            Skull-bash, Fury-swipes, Rest, Rock-slide, Slash, Substitute, Snore, Curse, Protect, Scary-face,
+            Mud-slap, Outrage, Endure, False-swipe, Swagger, Fury-cutter, Attract, Sleep-talk, Return,
+            Frustration, Dynamic-punch, Dragon-breath, Iron-tail, Metal-claw, Hidden-power, Sunny-day,
+            Crunch, Rock-smash, Beat-up, Heat-wave, Will-o-wisp, Facade, Focus-punch, Helping-hand,
+            Brick-break, Secret-power, Weather-ball, Overheat, Rock-tomb, Aerial-ace, Dragon-claw,
+            Dragon-dance, Natural-gift, Fling, Flare-blitz, Dragon-pulse, Shadow-claw, Fire-fang, Captivate,
+            Hone-claws, Flame-burst, Flame-charge, Round, Echoed-voice, Incinerate, Acrobatics, Inferno,
+            Fire-pledge, Work-up, Confide, Power-up-punch</p>
+        </div>
+        <div class="main" id="main5"><img
+            data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png"
+            class="main" id="main5" src="images/pokePlacHold.jpg" alt="charmeleon">
+          <p class="cardMainName" id="cardMainName5"><span class="labelName" id="cardMainNameSpan5">Name:
+            </span><span class="pokeName" id="cardMainNameInfo5">Charmeleon</span></p>
+          <p class="cardMainID" id="cardMainID5"><span class="labelName" id="cardMainIDSpan5">ID: </span><span
+              class="pokeName" id="cardMainIDInfo5">5</span></p>
+          <p class="cardMainAbilities" id="cardMainAbilities5"><span class="labelName"
+              id="cardMainAbilitiesSpan5">Abilities: </span><span class="pokeName" id="cardMainAbilitiesInfo5">Blaze,
+              Solar-power</span></p>
+          <p class="cardMainForms" id="cardMainForms5"><span class="labelName" id="cardMainFormsSpan5">Forms:
+            </span><span class="pokeName" id="cardMainFormsInfo5">Charmeleon</span></p>
+          <p class="cardMainMoves" id="cardMainMoves5"><span class="labelName" id="cardMainMovesSpan5">Moves:
+            </span><span class="pokeName" id="cardMainMovesInfo5">Mega-punch, Fire-punch,
+              Thunder-pun...<button class="readmoreButton" id="readmoreButton5" onclick="poop('poop5')">Read
+                More</button></span></p>
+          <p class="cardMainSpecies" id="cardMainSpecies5"><span class="labelName" id="cardMainSpeciesSpan5">Species:
+            </span><span class="pokeName" id="cardMainSpeciesInfo5">charmeleon</span></p>
+          <p class="cardMainTypes" id="cardMainTypes5"><span class="labelName" id="cardMainTypesSpan5">Types:
+            </span><span class="pokeName" id="cardMainTypesInfo5">Fire</span></p>
+        </div>
+      </div>
+      <div class="card" id="card6">
+        <div class="poopUp" id="poop6">
+          <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp6"
+              onclick="poop('poop6')">❌</button><span class="pPoopTitle" id="pPoopTitle6">Moves</span>
+          </div>
+          <p class="pPoopContent" id="pPoopContent6">Mega-punch, Fire-punch, Thunder-punch, Scratch,
+            Swords-dance, Cut, Wing-attack, Fly, Mega-kick, Headbutt, Body-slam, Take-down, Double-edge,
+            Leer, Growl, Roar, Ember, Flamethrower, Hyper-beam, Submission, Counter, Seismic-toss, Strength,
+            Solar-beam, Dragon-rage, Fire-spin, Earthquake, Fissure, Dig, Toxic, Rage, Mimic, Double-team,
+            Smokescreen, Defense-curl, Reflect, Bide, Fire-blast, Swift, Skull-bash, Fury-swipes, Rest,
+            Rock-slide, Slash, Substitute, Snore, Curse, Protect, Scary-face, Mud-slap, Outrage, Sandstorm,
+            Endure, False-swipe, Swagger, Fury-cutter, Steel-wing, Attract, Sleep-talk, Return, Frustration,
+            Dynamic-punch, Dragon-breath, Iron-tail, Metal-claw, Hidden-power, Twister, Sunny-day, Crunch,
+            Rock-smash, Beat-up, Heat-wave, Will-o-wisp, Facade, Focus-punch, Helping-hand, Brick-break,
+            Secret-power, Blaze-kick, Blast-burn, Weather-ball, Air-cutter, Overheat, Rock-tomb, Aerial-ace,
+            Dragon-claw, Dragon-dance, Roost, Natural-gift, Tailwind, Fling, Flare-blitz, Air-slash,
+            Dragon-pulse, Focus-blast, Giga-impact, Shadow-claw, Fire-fang, Defog, Captivate, Ominous-wind,
+            Hone-claws, Flame-burst, Flame-charge, Round, Echoed-voice, Sky-drop, Incinerate, Acrobatics,
+            Inferno, Fire-pledge, Bulldoze, Dragon-tail, Work-up, Heat-crash, Hurricane, Confide,
+            Mystical-fire, Power-up-punch, Brutal-swing, Breaking-swipe, Scale-shot, Dual-wingbeat,
+            Scorching-sands</p>
+        </div>
+        <div class="main" id="main6"><img
+            data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png"
+            class="main" id="main6" src="images/pokePlacHold.jpg" alt="charizard">
+          <p class="cardMainName" id="cardMainName6"><span class="labelName" id="cardMainNameSpan6">Name:
+            </span><span class="pokeName" id="cardMainNameInfo6">Charizard</span></p>
+          <p class="cardMainID" id="cardMainID6"><span class="labelName" id="cardMainIDSpan6">ID: </span><span
+              class="pokeName" id="cardMainIDInfo6">6</span></p>
+          <p class="cardMainAbilities" id="cardMainAbilities6"><span class="labelName"
+              id="cardMainAbilitiesSpan6">Abilities: </span><span class="pokeName" id="cardMainAbilitiesInfo6">Blaze,
+              Solar-power</span></p>
+          <p class="cardMainForms" id="cardMainForms6"><span class="labelName" id="cardMainFormsSpan6">Forms:
+            </span><span class="pokeName" id="cardMainFormsInfo6">Charizard</span></p>
+          <p class="cardMainMoves" id="cardMainMoves6"><span class="labelName" id="cardMainMovesSpan6">Moves:
+            </span><span class="pokeName" id="cardMainMovesInfo6">Mega-punch, Fire-punch,
+              Thunder-pun...<button class="readmoreButton" id="readmoreButton6" onclick="poop('poop6')">Read
+                More</button></span></p>
+          <p class="cardMainSpecies" id="cardMainSpecies6"><span class="labelName" id="cardMainSpeciesSpan6">Species:
+            </span><span class="pokeName" id="cardMainSpeciesInfo6">charizard</span></p>
+          <p class="cardMainTypes" id="cardMainTypes6"><span class="labelName" id="cardMainTypesSpan6">Types:
+            </span><span class="pokeName" id="cardMainTypesInfo6">Fire, Flying</span></p>
+        </div>
+      </div>
+      <div class="card" id="card7">
+        <div class="poopUp" id="poop7">
+          <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp7"
+              onclick="poop('poop7')">❌</button><span class="pPoopTitle" id="pPoopTitle7">Moves</span>
+          </div>
+          <p class="pPoopContent" id="pPoopContent7">Mega-punch, Ice-punch, Mega-kick, Headbutt, Tackle,
+            Body-slam, Take-down, Double-edge, Tail-whip, Bite, Mist, Water-gun, Hydro-pump, Surf, Ice-beam,
+            Blizzard, Bubble-beam, Submission, Counter, Seismic-toss, Strength, Dig, Toxic, Confusion, Rage,
+            Mimic, Double-team, Withdraw, Defense-curl, Haze, Reflect, Bide, Waterfall, Skull-bash, Bubble,
+            Rest, Rock-slide, Substitute, Snore, Curse, Flail, Protect, Mud-slap, Foresight, Icy-wind,
+            Outrage, Endure, Rollout, False-swipe, Swagger, Attract, Sleep-talk, Return, Frustration,
+            Dynamic-punch, Rapid-spin, Iron-tail, Hidden-power, Rain-dance, Mirror-coat, Rock-smash,
+            Whirlpool, Fake-out, Hail, Facade, Focus-punch, Helping-hand, Brick-break, Yawn, Refresh,
+            Secret-power, Dive, Mud-sport, Weather-ball, Rock-tomb, Water-spout, Muddy-water, Iron-defense,
+            Water-pulse, Gyro-ball, Brine, Natural-gift, Fling, Aqua-ring, Aura-sphere, Aqua-tail,
+            Dragon-pulse, Zen-headbutt, Captivate, Aqua-jet, Round, Scald, Shell-smash, Water-pledge,
+            Work-up, Confide, Power-up-punch, Life-dew, Flip-turn</p>
+        </div>
+        <div class="main" id="main7"><img
+            data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png"
+            class="main" id="main7" src="images/pokePlacHold.jpg" alt="squirtle">
+          <p class="cardMainName" id="cardMainName7"><span class="labelName" id="cardMainNameSpan7">Name:
+            </span><span class="pokeName" id="cardMainNameInfo7">Squirtle</span></p>
+          <p class="cardMainID" id="cardMainID7"><span class="labelName" id="cardMainIDSpan7">ID: </span><span
+              class="pokeName" id="cardMainIDInfo7">7</span></p>
+          <p class="cardMainAbilities" id="cardMainAbilities7"><span class="labelName"
+              id="cardMainAbilitiesSpan7">Abilities: </span><span class="pokeName" id="cardMainAbilitiesInfo7">Torrent,
+              Rain-dish</span></p>
+          <p class="cardMainForms" id="cardMainForms7"><span class="labelName" id="cardMainFormsSpan7">Forms:
+            </span><span class="pokeName" id="cardMainFormsInfo7">Squirtle</span></p>
+          <p class="cardMainMoves" id="cardMainMoves7"><span class="labelName" id="cardMainMovesSpan7">Moves:
+            </span><span class="pokeName" id="cardMainMovesInfo7">Mega-punch, Ice-punch, Mega-kick,
+              H...<button class="readmoreButton" id="readmoreButton7" onclick="poop('poop7')">Read
+                More</button></span></p>
+          <p class="cardMainSpecies" id="cardMainSpecies7"><span class="labelName" id="cardMainSpeciesSpan7">Species:
+            </span><span class="pokeName" id="cardMainSpeciesInfo7">squirtle</span></p>
+          <p class="cardMainTypes" id="cardMainTypes7"><span class="labelName" id="cardMainTypesSpan7">Types:
+            </span><span class="pokeName" id="cardMainTypesInfo7">Water</span></p>
+        </div>
+      </div>
+      <div class="card" id="card8">
+        <div class="poopUp" id="poop8">
+          <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp8"
+              onclick="poop('poop8')">❌</button><span class="pPoopTitle" id="pPoopTitle8">Moves</span>
+          </div>
+          <p class="pPoopContent" id="pPoopContent8">Mega-punch, Ice-punch, Mega-kick, Headbutt, Tackle,
+            Body-slam, Take-down, Double-edge, Tail-whip, Bite, Water-gun, Hydro-pump, Surf, Ice-beam,
+            Blizzard, Bubble-beam, Submission, Counter, Seismic-toss, Strength, Dig, Toxic, Rage, Mimic,
+            Double-team, Withdraw, Defense-curl, Reflect, Bide, Waterfall, Skull-bash, Bubble, Rest,
+            Rock-slide, Substitute, Snore, Curse, Protect, Mud-slap, Icy-wind, Outrage, Endure, Rollout,
+            False-swipe, Swagger, Attract, Sleep-talk, Return, Frustration, Dynamic-punch, Rapid-spin,
+            Iron-tail, Hidden-power, Rain-dance, Rock-smash, Whirlpool, Hail, Facade, Focus-punch,
+            Helping-hand, Brick-break, Secret-power, Dive, Weather-ball, Rock-tomb, Muddy-water,
+            Iron-defense, Water-pulse, Gyro-ball, Brine, Natural-gift, Fling, Aura-sphere, Aqua-tail,
+            Dragon-pulse, Zen-headbutt, Captivate, Round, Scald, Shell-smash, Water-pledge, Work-up,
+            Confide, Power-up-punch, Flip-turn</p>
+        </div>
+        <div class="main" id="main8"><img
+            data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png"
+            class="main" id="main8" src="images/pokePlacHold.jpg" alt="wartortle">
+          <p class="cardMainName" id="cardMainName8"><span class="labelName" id="cardMainNameSpan8">Name:
+            </span><span class="pokeName" id="cardMainNameInfo8">Wartortle</span></p>
+          <p class="cardMainID" id="cardMainID8"><span class="labelName" id="cardMainIDSpan8">ID: </span><span
+              class="pokeName" id="cardMainIDInfo8">8</span></p>
+          <p class="cardMainAbilities" id="cardMainAbilities8"><span class="labelName"
+              id="cardMainAbilitiesSpan8">Abilities: </span><span class="pokeName" id="cardMainAbilitiesInfo8">Torrent,
+              Rain-dish</span></p>
+          <p class="cardMainForms" id="cardMainForms8"><span class="labelName" id="cardMainFormsSpan8">Forms:
+            </span><span class="pokeName" id="cardMainFormsInfo8">Wartortle</span></p>
+          <p class="cardMainMoves" id="cardMainMoves8"><span class="labelName" id="cardMainMovesSpan8">Moves:
+            </span><span class="pokeName" id="cardMainMovesInfo8">Mega-punch, Ice-punch, Mega-kick,
+              H...<button class="readmoreButton" id="readmoreButton8" onclick="poop('poop8')">Read
+                More</button></span></p>
+          <p class="cardMainSpecies" id="cardMainSpecies8"><span class="labelName" id="cardMainSpeciesSpan8">Species:
+            </span><span class="pokeName" id="cardMainSpeciesInfo8">wartortle</span></p>
+          <p class="cardMainTypes" id="cardMainTypes8"><span class="labelName" id="cardMainTypesSpan8">Types:
+            </span><span class="pokeName" id="cardMainTypesInfo8">Water</span></p>
+        </div>
+      </div>
+      <div class="card" id="card9">
+        <div class="poopUp" id="poop9">
+          <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp9"
+              onclick="poop('poop9')">❌</button><span class="pPoopTitle" id="pPoopTitle9">Moves</span>
+          </div>
+          <p class="pPoopContent" id="pPoopContent9">Mega-punch, Ice-punch, Mega-kick, Headbutt, Tackle,
+            Body-slam, Take-down, Double-edge, Tail-whip, Bite, Roar, Water-gun, Hydro-pump, Surf, Ice-beam,
+            Blizzard, Bubble-beam, Hyper-beam, Submission, Counter, Seismic-toss, Strength, Earthquake,
+            Fissure, Dig, Toxic, Rage, Mimic, Double-team, Withdraw, Defense-curl, Reflect, Bide, Waterfall,
+            Skull-bash, Bubble, Rest, Rock-slide, Substitute, Snore, Curse, Protect, Mud-slap, Icy-wind,
+            Outrage, Endure, Rollout, False-swipe, Swagger, Attract, Sleep-talk, Return, Frustration,
+            Dynamic-punch, Rapid-spin, Iron-tail, Hidden-power, Rain-dance, Crunch, Rock-smash, Whirlpool,
+            Fake-out, Hail, Facade, Focus-punch, Helping-hand, Brick-break, Secret-power, Dive,
+            Hydro-cannon, Weather-ball, Rock-tomb, Signal-beam, Muddy-water, Iron-defense, Water-pulse,
+            Gyro-ball, Brine, Natural-gift, Fling, Aura-sphere, Dark-pulse, Aqua-tail, Dragon-pulse,
+            Focus-blast, Giga-impact, Avalanche, Zen-headbutt, Flash-cannon, Rock-climb, Captivate,
+            Aqua-jet, Smack-down, Round, Scald, Shell-smash, Water-pledge, Bulldoze, Dragon-tail, Work-up,
+            Confide, Power-up-punch, Liquidation, Body-press, Terrain-pulse, Flip-turn</p>
+        </div>
+        <div class="main" id="main9"><img
+            data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png"
+            class="main" id="main9" src="images/pokePlacHold.jpg" alt="blastoise">
+          <p class="cardMainName" id="cardMainName9"><span class="labelName" id="cardMainNameSpan9">Name:
+            </span><span class="pokeName" id="cardMainNameInfo9">Blastoise</span></p>
+          <p class="cardMainID" id="cardMainID9"><span class="labelName" id="cardMainIDSpan9">ID: </span><span
+              class="pokeName" id="cardMainIDInfo9">9</span></p>
+          <p class="cardMainAbilities" id="cardMainAbilities9"><span class="labelName"
+              id="cardMainAbilitiesSpan9">Abilities: </span><span class="pokeName" id="cardMainAbilitiesInfo9">Torrent,
+              Rain-dish</span></p>
+          <p class="cardMainForms" id="cardMainForms9"><span class="labelName" id="cardMainFormsSpan9">Forms:
+            </span><span class="pokeName" id="cardMainFormsInfo9">Blastoise</span></p>
+          <p class="cardMainMoves" id="cardMainMoves9"><span class="labelName" id="cardMainMovesSpan9">Moves:
+            </span><span class="pokeName" id="cardMainMovesInfo9">Mega-punch, Ice-punch, Mega-kick,
+              H...<button class="readmoreButton" id="readmoreButton9" onclick="poop('poop9')">Read
+                More</button></span></p>
+          <p class="cardMainSpecies" id="cardMainSpecies9"><span class="labelName" id="cardMainSpeciesSpan9">Species:
+            </span><span class="pokeName" id="cardMainSpeciesInfo9">blastoise</span></p>
+          <p class="cardMainTypes" id="cardMainTypes9"><span class="labelName" id="cardMainTypesSpan9">Types:
+            </span><span class="pokeName" id="cardMainTypesInfo9">Water</span></p>
+        </div>
+      </div>
+      <div class="card" id="card10">
+        <div class="poopUp" id="poop10">
+          <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp10"
+              onclick="poop('poop10')">❌</button><span class="pPoopTitle" id="pPoopTitle10">Moves</span>
+          </div>
+          <p class="pPoopContent" id="pPoopContent10">Tackle, String-shot, Snore, Bug-bite, Electroweb</p>
+        </div>
+        <div class="main" id="main10"><img
+            data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10.png"
+            class="main" id="main10" src="images/pokePlacHold.jpg" alt="caterpie">
+          <p class="cardMainName" id="cardMainName10"><span class="labelName" id="cardMainNameSpan10">Name:
+            </span><span class="pokeName" id="cardMainNameInfo10">Caterpie</span></p>
+          <p class="cardMainID" id="cardMainID10"><span class="labelName" id="cardMainIDSpan10">ID:
+            </span><span class="pokeName" id="cardMainIDInfo10">10</span></p>
+          <p class="cardMainAbilities" id="cardMainAbilities10"><span class="labelName"
+              id="cardMainAbilitiesSpan10">Abilities: </span><span class="pokeName"
+              id="cardMainAbilitiesInfo10">Shield-dust, Run-away</span></p>
+          <p class="cardMainForms" id="cardMainForms10"><span class="labelName" id="cardMainFormsSpan10">Forms:
+            </span><span class="pokeName" id="cardMainFormsInfo10">Caterpie</span></p>
+          <p class="cardMainMoves" id="cardMainMoves10"><span class="labelName" id="cardMainMovesSpan10">Moves:
+            </span><span class="pokeName" id="cardMainMovesInfo10">Tackle, String-shot, Snore, Bug-bit...<button
+                class="readmoreButton" id="readmoreButton10" onclick="poop('poop10')">Read
+                More</button></span></p>
+          <p class="cardMainSpecies" id="cardMainSpecies10"><span class="labelName" id="cardMainSpeciesSpan10">Species:
+            </span><span class="pokeName" id="cardMainSpeciesInfo10">caterpie</span></p>
+          <p class="cardMainTypes" id="cardMainTypes10"><span class="labelName" id="cardMainTypesSpan10">Types:
+            </span><span class="pokeName" id="cardMainTypesInfo10">Bug</span></p>
+        </div>
+      </div>
+      <div class="card" id="card11">
+        <div class="poopUp" id="poop11">
+          <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp11"
+              onclick="poop('poop11')">❌</button><span class="pPoopTitle" id="pPoopTitle11">Moves</span>
+          </div>
+          <p class="pPoopContent" id="pPoopContent11">String-shot, Harden, Iron-defense, Bug-bite, Electroweb
+          </p>
+        </div>
+        <div class="main" id="main11"><img
+            data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/11.png"
+            class="main" id="main11" src="images/pokePlacHold.jpg" alt="metapod">
+          <p class="cardMainName" id="cardMainName11"><span class="labelName" id="cardMainNameSpan11">Name:
+            </span><span class="pokeName" id="cardMainNameInfo11">Metapod</span></p>
+          <p class="cardMainID" id="cardMainID11"><span class="labelName" id="cardMainIDSpan11">ID:
+            </span><span class="pokeName" id="cardMainIDInfo11">11</span></p>
+          <p class="cardMainAbilities" id="cardMainAbilities11"><span class="labelName"
+              id="cardMainAbilitiesSpan11">Abilities: </span><span class="pokeName"
+              id="cardMainAbilitiesInfo11">Shed-skin</span></p>
+          <p class="cardMainForms" id="cardMainForms11"><span class="labelName" id="cardMainFormsSpan11">Forms:
+            </span><span class="pokeName" id="cardMainFormsInfo11">Metapod</span></p>
+          <p class="cardMainMoves" id="cardMainMoves11"><span class="labelName" id="cardMainMovesSpan11">Moves:
+            </span><span class="pokeName" id="cardMainMovesInfo11">String-shot, Harden, Iron-defense, ...<button
+                class="readmoreButton" id="readmoreButton11" onclick="poop('poop11')">Read
+                More</button></span></p>
+          <p class="cardMainSpecies" id="cardMainSpecies11"><span class="labelName" id="cardMainSpeciesSpan11">Species:
+            </span><span class="pokeName" id="cardMainSpeciesInfo11">metapod</span></p>
+          <p class="cardMainTypes" id="cardMainTypes11"><span class="labelName" id="cardMainTypesSpan11">Types:
+            </span><span class="pokeName" id="cardMainTypesInfo11">Bug</span></p>
+        </div>
+      </div>
+      <div class="card" id="card12">
+        <div class="poopUp" id="poop12">
+          <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp12"
+              onclick="poop('poop12')">❌</button><span class="pPoopTitle" id="pPoopTitle12">Moves</span>
+          </div>
+          <p class="pPoopContent" id="pPoopContent12">Razor-wind, Gust, Whirlwind, Headbutt, Tackle,
+            Take-down, Double-edge, Supersonic, Psybeam, Hyper-beam, Mega-drain, Solar-beam, Poison-powder,
+            Stun-spore, Sleep-powder, String-shot, Toxic, Confusion, Psychic, Rage, Teleport, Mimic,
+            Double-team, Harden, Reflect, Bide, Swift, Dream-eater, Flash, Psywave, Rest, Substitute, Thief,
+            Nightmare, Snore, Curse, Protect, Giga-drain, Endure, Swagger, Attract, Sleep-talk, Return,
+            Frustration, Safeguard, Baton-pass, Sweet-scent, Hidden-power, Twister, Rain-dance, Sunny-day,
+            Psych-up, Shadow-ball, Facade, Skill-swap, Secret-power, Air-cutter, Silver-wind, Signal-beam,
+            Aerial-ace, Iron-defense, Roost, Natural-gift, Tailwind, U-turn, Air-slash, Bug-buzz,
+            Energy-ball, Giga-impact, Defog, Captivate, Bug-bite, Ominous-wind, Venoshock, Rage-powder,
+            Quiver-dance, Round, Acrobatics, Struggle-bug, Electroweb, Hurricane, Draining-kiss, Confide,
+            Infestation, Pollen-puff, Dual-wingbeat</p>
+        </div>
+        <div class="main" id="main12"><img
+            data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/12.png"
+            class="main" id="main12" src="images/pokePlacHold.jpg" alt="butterfree">
+          <p class="cardMainName" id="cardMainName12"><span class="labelName" id="cardMainNameSpan12">Name:
+            </span><span class="pokeName" id="cardMainNameInfo12">Butterfree</span></p>
+          <p class="cardMainID" id="cardMainID12"><span class="labelName" id="cardMainIDSpan12">ID:
+            </span><span class="pokeName" id="cardMainIDInfo12">12</span></p>
+          <p class="cardMainAbilities" id="cardMainAbilities12"><span class="labelName"
+              id="cardMainAbilitiesSpan12">Abilities: </span><span class="pokeName"
+              id="cardMainAbilitiesInfo12">Compound-eyes, Tinted-lens</span></p>
+          <p class="cardMainForms" id="cardMainForms12"><span class="labelName" id="cardMainFormsSpan12">Forms:
+            </span><span class="pokeName" id="cardMainFormsInfo12">Butterfree</span></p>
+          <p class="cardMainMoves" id="cardMainMoves12"><span class="labelName" id="cardMainMovesSpan12">Moves:
+            </span><span class="pokeName" id="cardMainMovesInfo12">Razor-wind, Gust, Whirlwind, Headbu...<button
+                class="readmoreButton" id="readmoreButton12" onclick="poop('poop12')">Read
+                More</button></span></p>
+          <p class="cardMainSpecies" id="cardMainSpecies12"><span class="labelName" id="cardMainSpeciesSpan12">Species:
+            </span><span class="pokeName" id="cardMainSpeciesInfo12">butterfree</span></p>
+          <p class="cardMainTypes" id="cardMainTypes12"><span class="labelName" id="cardMainTypesSpan12">Types:
+            </span><span class="pokeName" id="cardMainTypesInfo12">Bug,
+              Flying</span></p>
+        </div>
+      </div>
+      <div class="card" id="card13">
+        <div class="poopUp" id="poop13">
+          <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp13"
+              onclick="poop('poop13')">❌</button><span class="pPoopTitle" id="pPoopTitle13">Moves</span>
+          </div>
+          <p class="pPoopContent" id="pPoopContent13">Poison-sting, String-shot, Bug-bite, Electroweb</p>
+        </div>
+        <div class="main" id="main13"><img
+            data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/13.png"
+            class="main" id="main13" src="images/pokePlacHold.jpg" alt="weedle">
+          <p class="cardMainName" id="cardMainName13"><span class="labelName" id="cardMainNameSpan13">Name:
+            </span><span class="pokeName" id="cardMainNameInfo13">Weedle</span></p>
+          <p class="cardMainID" id="cardMainID13"><span class="labelName" id="cardMainIDSpan13">ID:
+            </span><span class="pokeName" id="cardMainIDInfo13">13</span></p>
+          <p class="cardMainAbilities" id="cardMainAbilities13"><span class="labelName"
+              id="cardMainAbilitiesSpan13">Abilities: </span><span class="pokeName"
+              id="cardMainAbilitiesInfo13">Shield-dust, Run-away</span></p>
+          <p class="cardMainForms" id="cardMainForms13"><span class="labelName" id="cardMainFormsSpan13">Forms:
+            </span><span class="pokeName" id="cardMainFormsInfo13">Weedle</span></p>
+          <p class="cardMainMoves" id="cardMainMoves13"><span class="labelName" id="cardMainMovesSpan13">Moves:
+            </span><span class="pokeName" id="cardMainMovesInfo13">Poison-sting, String-shot, Bug-bite...<button
+                class="readmoreButton" id="readmoreButton13" onclick="poop('poop13')">Read
+                More</button></span></p>
+          <p class="cardMainSpecies" id="cardMainSpecies13"><span class="labelName" id="cardMainSpeciesSpan13">Species:
+            </span><span class="pokeName" id="cardMainSpeciesInfo13">weedle</span></p>
+          <p class="cardMainTypes" id="cardMainTypes13"><span class="labelName" id="cardMainTypesSpan13">Types:
+            </span><span class="pokeName" id="cardMainTypesInfo13">Bug,
+              Poison</span></p>
+        </div>
+      </div>
+      <div class="card" id="card14">
+        <div class="poopUp" id="poop14">
+          <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp14"
+              onclick="poop('poop14')">❌</button><span class="pPoopTitle" id="pPoopTitle14">Moves</span>
+          </div>
+          <p class="pPoopContent" id="pPoopContent14">String-shot, Harden, Iron-defense, Bug-bite, Electroweb
+          </p>
+        </div>
+        <div class="main" id="main14"><img
+            data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/14.png"
+            class="main" id="main14" src="images/pokePlacHold.jpg" alt="kakuna">
+          <p class="cardMainName" id="cardMainName14"><span class="labelName" id="cardMainNameSpan14">Name:
+            </span><span class="pokeName" id="cardMainNameInfo14">Kakuna</span></p>
+          <p class="cardMainID" id="cardMainID14"><span class="labelName" id="cardMainIDSpan14">ID:
+            </span><span class="pokeName" id="cardMainIDInfo14">14</span></p>
+          <p class="cardMainAbilities" id="cardMainAbilities14"><span class="labelName"
+              id="cardMainAbilitiesSpan14">Abilities: </span><span class="pokeName"
+              id="cardMainAbilitiesInfo14">Shed-skin</span></p>
+          <p class="cardMainForms" id="cardMainForms14"><span class="labelName" id="cardMainFormsSpan14">Forms:
+            </span><span class="pokeName" id="cardMainFormsInfo14">Kakuna</span></p>
+          <p class="cardMainMoves" id="cardMainMoves14"><span class="labelName" id="cardMainMovesSpan14">Moves:
+            </span><span class="pokeName" id="cardMainMovesInfo14">String-shot, Harden, Iron-defense, ...<button
+                class="readmoreButton" id="readmoreButton14" onclick="poop('poop14')">Read
+                More</button></span></p>
+          <p class="cardMainSpecies" id="cardMainSpecies14"><span class="labelName" id="cardMainSpeciesSpan14">Species:
+            </span><span class="pokeName" id="cardMainSpeciesInfo14">kakuna</span></p>
+          <p class="cardMainTypes" id="cardMainTypes14"><span class="labelName" id="cardMainTypesSpan14">Types:
+            </span><span class="pokeName" id="cardMainTypesInfo14">Bug,
+              Poison</span></p>
+        </div>
+      </div>
+      <div class="card" id="card15">
+        <div class="poopUp" id="poop15">
+          <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp15"
+              onclick="poop('poop15')">❌</button><span class="pPoopTitle" id="pPoopTitle15">Moves</span>
+          </div>
+          <p class="pPoopContent" id="pPoopContent15">Swords-dance, Cut, Headbutt, Fury-attack, Take-down,
+            Double-edge, Twineedle, Pin-missile, Hyper-beam, Peck, Mega-drain, Solar-beam, String-shot,
+            Toxic, Agility, Rage, Mimic, Double-team, Reflect, Focus-energy, Bide, Swift, Skull-bash, Flash,
+            Rest, Substitute, Thief, Snore, Curse, Protect, Sludge-bomb, Outrage, Giga-drain, Endure,
+            False-swipe, Swagger, Fury-cutter, Attract, Sleep-talk, Return, Frustration, Pursuit,
+            Sweet-scent, Hidden-power, Sunny-day, Rock-smash, Facade, Brick-break, Knock-off, Endeavor,
+            Secret-power, Air-cutter, Silver-wind, Aerial-ace, Roost, Natural-gift, Tailwind, U-turn,
+            Payback, Assurance, Toxic-spikes, Poison-jab, X-scissor, Giga-impact, Defog, Captivate,
+            Bug-bite, Ominous-wind, Venoshock, Round, Acrobatics, Struggle-bug, Electroweb, Drill-run,
+            Fell-stinger, Confide, Infestation, Laser-focus, Throat-chop, Brutal-swing</p>
+        </div>
+        <div class="main" id="main15"><img
+            data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/15.png"
+            class="main" id="main15" src="images/pokePlacHold.jpg" alt="beedrill">
+          <p class="cardMainName" id="cardMainName15"><span class="labelName" id="cardMainNameSpan15">Name:
+            </span><span class="pokeName" id="cardMainNameInfo15">Beedrill</span></p>
+          <p class="cardMainID" id="cardMainID15"><span class="labelName" id="cardMainIDSpan15">ID:
+            </span><span class="pokeName" id="cardMainIDInfo15">15</span></p>
+          <p class="cardMainAbilities" id="cardMainAbilities15"><span class="labelName"
+              id="cardMainAbilitiesSpan15">Abilities: </span><span class="pokeName" id="cardMainAbilitiesInfo15">Swarm,
+              Sniper</span></p>
+          <p class="cardMainForms" id="cardMainForms15"><span class="labelName" id="cardMainFormsSpan15">Forms:
+            </span><span class="pokeName" id="cardMainFormsInfo15">Beedrill</span></p>
+          <p class="cardMainMoves" id="cardMainMoves15"><span class="labelName" id="cardMainMovesSpan15">Moves:
+            </span><span class="pokeName" id="cardMainMovesInfo15">Swords-dance, Cut, Headbutt, Fury-a...<button
+                class="readmoreButton" id="readmoreButton15" onclick="poop('poop15')">Read
+                More</button></span></p>
+          <p class="cardMainSpecies" id="cardMainSpecies15"><span class="labelName" id="cardMainSpeciesSpan15">Species:
+            </span><span class="pokeName" id="cardMainSpeciesInfo15">beedrill</span></p>
+          <p class="cardMainTypes" id="cardMainTypes15"><span class="labelName" id="cardMainTypesSpan15">Types:
+            </span><span class="pokeName" id="cardMainTypesInfo15">Bug,
+              Poison</span></p>
+        </div>
+      </div>
+      <div class="card" id="card16">
+        <div class="poopUp" id="poop16">
+          <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp16"
+              onclick="poop('poop16')">❌</button><span class="pPoopTitle" id="pPoopTitle16">Moves</span>
+          </div>
+          <p class="pPoopContent" id="pPoopContent16">Razor-wind, Gust, Wing-attack, Whirlwind, Fly,
+            Sand-attack, Headbutt, Tackle, Take-down, Double-edge, Toxic, Agility, Quick-attack, Rage,
+            Mimic, Double-team, Reflect, Bide, Mirror-move, Swift, Sky-attack, Rest, Substitute, Thief,
+            Snore, Curse, Protect, Feint-attack, Mud-slap, Foresight, Detect, Endure, Swagger, Steel-wing,
+            Attract, Sleep-talk, Return, Frustration, Pursuit, Hidden-power, Twister, Rain-dance, Sunny-day,
+            Uproar, Heat-wave, Facade, Secret-power, Feather-dance, Air-cutter, Aerial-ace, Roost,
+            Natural-gift, Pluck, Tailwind, U-turn, Air-slash, Brave-bird, Defog, Captivate, Ominous-wind,
+            Round, Work-up, Hurricane, Confide</p>
+        </div>
+        <div class="main" id="main16"><img
+            data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/16.png"
+            class="main" id="main16" src="images/pokePlacHold.jpg" alt="pidgey">
+          <p class="cardMainName" id="cardMainName16"><span class="labelName" id="cardMainNameSpan16">Name:
+            </span><span class="pokeName" id="cardMainNameInfo16">Pidgey</span></p>
+          <p class="cardMainID" id="cardMainID16"><span class="labelName" id="cardMainIDSpan16">ID:
+            </span><span class="pokeName" id="cardMainIDInfo16">16</span></p>
+          <p class="cardMainAbilities" id="cardMainAbilities16"><span class="labelName"
+              id="cardMainAbilitiesSpan16">Abilities: </span><span class="pokeName"
+              id="cardMainAbilitiesInfo16">Keen-eye, Tangled-feet, Big-pecks</span></p>
+          <p class="cardMainForms" id="cardMainForms16"><span class="labelName" id="cardMainFormsSpan16">Forms:
+            </span><span class="pokeName" id="cardMainFormsInfo16">Pidgey</span></p>
+          <p class="cardMainMoves" id="cardMainMoves16"><span class="labelName" id="cardMainMovesSpan16">Moves:
+            </span><span class="pokeName" id="cardMainMovesInfo16">Razor-wind, Gust, Wing-attack, Whir...<button
+                class="readmoreButton" id="readmoreButton16" onclick="poop('poop16')">Read
+                More</button></span></p>
+          <p class="cardMainSpecies" id="cardMainSpecies16"><span class="labelName" id="cardMainSpeciesSpan16">Species:
+            </span><span class="pokeName" id="cardMainSpeciesInfo16">pidgey</span></p>
+          <p class="cardMainTypes" id="cardMainTypes16"><span class="labelName" id="cardMainTypesSpan16">Types:
+            </span><span class="pokeName" id="cardMainTypesInfo16">Normal, Flying</span></p>
+        </div>
+      </div>
+      <div class="card" id="card17">
+        <div class="poopUp" id="poop17">
+          <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp17"
+              onclick="poop('poop17')">❌</button><span class="pPoopTitle" id="pPoopTitle17">Moves</span>
+          </div>
+          <p class="pPoopContent" id="pPoopContent17">Razor-wind, Gust, Wing-attack, Whirlwind, Fly,
+            Sand-attack, Headbutt, Tackle, Take-down, Double-edge, Toxic, Agility, Quick-attack, Rage,
+            Mimic, Double-team, Reflect, Bide, Mirror-move, Swift, Sky-attack, Rest, Substitute, Thief,
+            Snore, Curse, Protect, Mud-slap, Detect, Endure, Swagger, Steel-wing, Attract, Sleep-talk,
+            Return, Frustration, Hidden-power, Twister, Rain-dance, Sunny-day, Uproar, Heat-wave, Facade,
+            Secret-power, Feather-dance, Air-cutter, Aerial-ace, Roost, Natural-gift, Pluck, Tailwind,
+            U-turn, Air-slash, Defog, Captivate, Ominous-wind, Round, Work-up, Hurricane, Confide</p>
+        </div>
+        <div class="main" id="main17"><img
+            data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/17.png"
+            class="main" id="main17" src="images/pokePlacHold.jpg" alt="pidgeotto">
+          <p class="cardMainName" id="cardMainName17"><span class="labelName" id="cardMainNameSpan17">Name:
+            </span><span class="pokeName" id="cardMainNameInfo17">Pidgeotto</span></p>
+          <p class="cardMainID" id="cardMainID17"><span class="labelName" id="cardMainIDSpan17">ID:
+            </span><span class="pokeName" id="cardMainIDInfo17">17</span></p>
+          <p class="cardMainAbilities" id="cardMainAbilities17"><span class="labelName"
+              id="cardMainAbilitiesSpan17">Abilities: </span><span class="pokeName"
+              id="cardMainAbilitiesInfo17">Keen-eye, Tangled-feet, Big-pecks</span></p>
+          <p class="cardMainForms" id="cardMainForms17"><span class="labelName" id="cardMainFormsSpan17">Forms:
+            </span><span class="pokeName" id="cardMainFormsInfo17">Pidgeotto</span></p>
+          <p class="cardMainMoves" id="cardMainMoves17"><span class="labelName" id="cardMainMovesSpan17">Moves:
+            </span><span class="pokeName" id="cardMainMovesInfo17">Razor-wind, Gust, Wing-attack, Whir...<button
+                class="readmoreButton" id="readmoreButton17" onclick="poop('poop17')">Read
+                More</button></span></p>
+          <p class="cardMainSpecies" id="cardMainSpecies17"><span class="labelName" id="cardMainSpeciesSpan17">Species:
+            </span><span class="pokeName" id="cardMainSpeciesInfo17">pidgeotto</span></p>
+          <p class="cardMainTypes" id="cardMainTypes17"><span class="labelName" id="cardMainTypesSpan17">Types:
+            </span><span class="pokeName" id="cardMainTypesInfo17">Normal, Flying</span></p>
+        </div>
+      </div>
+      <div class="card" id="card18">
+        <div class="poopUp" id="poop18">
+          <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp18"
+              onclick="poop('poop18')">❌</button><span class="pPoopTitle" id="pPoopTitle18">Moves</span>
+          </div>
+          <p class="pPoopContent" id="pPoopContent18">Razor-wind, Gust, Wing-attack, Whirlwind, Fly,
+            Sand-attack, Headbutt, Tackle, Take-down, Double-edge, Hyper-beam, Toxic, Agility, Quick-attack,
+            Rage, Mimic, Double-team, Reflect, Bide, Mirror-move, Swift, Sky-attack, Rest, Substitute,
+            Thief, Snore, Curse, Protect, Mud-slap, Detect, Endure, Swagger, Steel-wing, Attract,
+            Sleep-talk, Return, Frustration, Hidden-power, Twister, Rain-dance, Sunny-day, Uproar,
+            Heat-wave, Facade, Secret-power, Feather-dance, Air-cutter, Aerial-ace, Roost, Natural-gift,
+            Pluck, Tailwind, U-turn, Air-slash, Giga-impact, Defog, Captivate, Ominous-wind, Round, Work-up,
+            Hurricane, Confide, Laser-focus</p>
+        </div>
+        <div class="main" id="main18"><img
+            data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/18.png"
+            class="main" id="main18" src="images/pokePlacHold.jpg" alt="pidgeot">
+          <p class="cardMainName" id="cardMainName18"><span class="labelName" id="cardMainNameSpan18">Name:
+            </span><span class="pokeName" id="cardMainNameInfo18">Pidgeot</span></p>
+          <p class="cardMainID" id="cardMainID18"><span class="labelName" id="cardMainIDSpan18">ID:
+            </span><span class="pokeName" id="cardMainIDInfo18">18</span></p>
+          <p class="cardMainAbilities" id="cardMainAbilities18"><span class="labelName"
+              id="cardMainAbilitiesSpan18">Abilities: </span><span class="pokeName"
+              id="cardMainAbilitiesInfo18">Keen-eye, Tangled-feet, Big-pecks</span></p>
+          <p class="cardMainForms" id="cardMainForms18"><span class="labelName" id="cardMainFormsSpan18">Forms:
+            </span><span class="pokeName" id="cardMainFormsInfo18">Pidgeot</span></p>
+          <p class="cardMainMoves" id="cardMainMoves18"><span class="labelName" id="cardMainMovesSpan18">Moves:
+            </span><span class="pokeName" id="cardMainMovesInfo18">Razor-wind, Gust, Wing-attack, Whir...<button
+                class="readmoreButton" id="readmoreButton18" onclick="poop('poop18')">Read
+                More</button></span></p>
+          <p class="cardMainSpecies" id="cardMainSpecies18"><span class="labelName" id="cardMainSpeciesSpan18">Species:
+            </span><span class="pokeName" id="cardMainSpeciesInfo18">pidgeot</span></p>
+          <p class="cardMainTypes" id="cardMainTypes18"><span class="labelName" id="cardMainTypesSpan18">Types:
+            </span><span class="pokeName" id="cardMainTypesInfo18">Normal, Flying</span></p>
+        </div>
+      </div>
+      <div class="card" id="card19">
+        <div class="poopUp" id="poop19">
+          <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp19"
+              onclick="poop('poop19')">❌</button><span class="pPoopTitle" id="pPoopTitle19">Moves</span>
+          </div>
+          <p class="pPoopContent" id="pPoopContent19">Cut, Headbutt, Tackle, Body-slam, Take-down,
+            Double-edge, Tail-whip, Bite, Water-gun, Ice-beam, Blizzard, Bubble-beam, Counter, Thunderbolt,
+            Thunder-wave, Thunder, Dig, Toxic, Quick-attack, Rage, Mimic, Screech, Double-team,
+            Defense-curl, Focus-energy, Bide, Swift, Skull-bash, Fury-swipes, Rest, Hyper-fang, Super-fang,
+            Substitute, Thief, Flame-wheel, Snore, Curse, Reversal, Protect, Mud-slap, Icy-wind, Endure,
+            Swagger, Attract, Sleep-talk, Return, Frustration, Pursuit, Iron-tail, Hidden-power, Rain-dance,
+            Sunny-day, Crunch, Shadow-ball, Rock-smash, Uproar, Facade, Taunt, Revenge, Endeavor,
+            Secret-power, Covet, Shock-wave, Natural-gift, Pluck, U-turn, Assurance, Me-first, Last-resort,
+            Sucker-punch, Zen-headbutt, Captivate, Grass-knot, Charge-beam, Round, Retaliate, Final-gambit,
+            Work-up, Wild-charge, Confide</p>
+        </div>
+        <div class="main" id="main19"><img
+            data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/19.png"
+            class="main" id="main19" src="images/pokePlacHold.jpg" alt="rattata">
+          <p class="cardMainName" id="cardMainName19"><span class="labelName" id="cardMainNameSpan19">Name:
+            </span><span class="pokeName" id="cardMainNameInfo19">Rattata</span></p>
+          <p class="cardMainID" id="cardMainID19"><span class="labelName" id="cardMainIDSpan19">ID:
+            </span><span class="pokeName" id="cardMainIDInfo19">19</span></p>
+          <p class="cardMainAbilities" id="cardMainAbilities19"><span class="labelName"
+              id="cardMainAbilitiesSpan19">Abilities: </span><span class="pokeName"
+              id="cardMainAbilitiesInfo19">Run-away, Guts, Hustle</span></p>
+          <p class="cardMainForms" id="cardMainForms19"><span class="labelName" id="cardMainFormsSpan19">Forms:
+            </span><span class="pokeName" id="cardMainFormsInfo19">Rattata</span></p>
+          <p class="cardMainMoves" id="cardMainMoves19"><span class="labelName" id="cardMainMovesSpan19">Moves:
+            </span><span class="pokeName" id="cardMainMovesInfo19">Cut,
+              Headbutt, Tackle, Body-slam, T...<button class="readmoreButton" id="readmoreButton19"
+                onclick="poop('poop19')">Read More</button></span></p>
+          <p class="cardMainSpecies" id="cardMainSpecies19"><span class="labelName" id="cardMainSpeciesSpan19">Species:
+            </span><span class="pokeName" id="cardMainSpeciesInfo19">rattata</span></p>
+          <p class="cardMainTypes" id="cardMainTypes19"><span class="labelName" id="cardMainTypesSpan19">Types:
+            </span><span class="pokeName" id="cardMainTypesInfo19">Normal</span></p>
+        </div>
+      </div>
+      <div class="card" id="card20">
+        <div class="poopUp" id="poop20">
+          <div class="buttonPoopWrapper"><button class="buttonPoop" id="poobuttonp20"
+              onclick="poop('poop20')">❌</button><span class="pPoopTitle" id="pPoopTitle20">Moves</span>
+          </div>
+          <p class="pPoopContent" id="pPoopContent20">Swords-dance, Cut, Headbutt, Tackle, Body-slam,
+            Take-down, Double-edge, Tail-whip, Bite, Roar, Water-gun, Ice-beam, Blizzard, Bubble-beam,
+            Hyper-beam, Counter, Strength, Thunderbolt, Thunder-wave, Thunder, Dig, Toxic, Quick-attack,
+            Rage, Mimic, Double-team, Defense-curl, Focus-energy, Bide, Swift, Skull-bash, Fury-swipes,
+            Rest, Hyper-fang, Super-fang, Substitute, Thief, Snore, Curse, Protect, Scary-face, Mud-slap,
+            Icy-wind, Endure, Swagger, Attract, Sleep-talk, Return, Frustration, Pursuit, Iron-tail,
+            Hidden-power, Rain-dance, Sunny-day, Crunch, Shadow-ball, Rock-smash, Uproar, Facade, Taunt,
+            Endeavor, Secret-power, Covet, Shock-wave, Natural-gift, Pluck, U-turn, Assurance, Last-resort,
+            Sucker-punch, Giga-impact, Zen-headbutt, Captivate, Grass-knot, Charge-beam, Round, Retaliate,
+            Work-up, Wild-charge, Confide, Throat-chop, Stomping-tantrum</p>
+        </div>
+        <div class="main" id="main20"><img
+            data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/20.png"
+            class="main" id="main20" src="images/pokePlacHold.jpg" alt="raticate">
+          <p class="cardMainName" id="cardMainName20"><span class="labelName" id="cardMainNameSpan20">Name:
+            </span><span class="pokeName" id="cardMainNameInfo20">Raticate</span></p>
+          <p class="cardMainID" id="cardMainID20"><span class="labelName" id="cardMainIDSpan20">ID:
+            </span><span class="pokeName" id="cardMainIDInfo20">20</span></p>
+          <p class="cardMainAbilities" id="cardMainAbilities20"><span class="labelName"
+              id="cardMainAbilitiesSpan20">Abilities: </span><span class="pokeName"
+              id="cardMainAbilitiesInfo20">Run-away, Guts, Hustle</span></p>
+          <p class="cardMainForms" id="cardMainForms20"><span class="labelName" id="cardMainFormsSpan20">Forms:
+            </span><span class="pokeName" id="cardMainFormsInfo20">Raticate</span></p>
+          <p class="cardMainMoves" id="cardMainMoves20"><span class="labelName" id="cardMainMovesSpan20">Moves:
+            </span><span class="pokeName" id="cardMainMovesInfo20">Swords-dance, Cut, Headbutt, Tackle...<button
+                class="readmoreButton" id="readmoreButton20" onclick="poop('poop20')">Read
+                More</button></span></p>
+          <p class="cardMainSpecies" id="cardMainSpecies20"><span class="labelName" id="cardMainSpeciesSpan20">Species:
+            </span><span class="pokeName" id="cardMainSpeciesInfo20">raticate</span></p>
+          <p class="cardMainTypes" id="cardMainTypes20"><span class="labelName" id="cardMainTypesSpan20">Types:
+            </span><span class="pokeName" id="cardMainTypesInfo20">Normal</span></p>
+        </div>
+      </div>
+    </div>
 
-    </main>
-    <script id="poopScript">
-        function poop(a) {
-            document.getElementById(a).classList.toggle("show");
-        }
-    </script>
-    <!-- <script src="js/lazyload.js"></script> -->
-    <script src="js/script.js"></script>
+  </main>
+  <script id="poopScript">
+    function poop(a) {
+      document.getElementById(a).classList.toggle("show");
+    }
+  </script>
+  <script src="js/lazyload.js"></script>
+  <script src="js/script.js"></script>
 
 </body>
 

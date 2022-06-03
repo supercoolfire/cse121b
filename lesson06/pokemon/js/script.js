@@ -1,6 +1,7 @@
+"use strict";
+
 const app = {
   init: () => {
-    app.lazyload();
     document.getElementById("search").addEventListener("click", app.fetchThePokemon2);
     document.getElementById("pokemonName").addEventListener('keypress', function (e) {
       if (e.key === 'Enter') {
@@ -10,7 +11,7 @@ const app = {
 
     let offset = 0;
     let limit = parseInt(document.getElementById("viewBy").value);
-    app.showGallery(offset, limit);
+    // app.showGallery(offset, limit);
 
     viewBy.addEventListener("change", () => {
       limit = parseInt(document.getElementById("viewBy").value);
@@ -42,13 +43,6 @@ const app = {
 
     // alert(`https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`)
     app.fetchThePokemon(`https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`);
-
-
-    let poopScript = document.getElementById("poopScript");
-    const textNode = document.createTextNode(`\nfunction poop(a) {
-      document.getElementById(a).classList.toggle("show");
-    }`);
-    poopScript.appendChild(textNode);
 
   },
   fetchThePokemon: (url) => {
@@ -162,10 +156,10 @@ const app = {
     // image
     let cardMainImg = document.createElement("img");
     divCardMain.append(cardMainImg);
+    cardMainImg.setAttribute("data-src", `${pokeData.sprites.other["official-artwork"].front_default}`);
     cardMainImg.className = "main";
     cardMainImg.id = `main${pokeData.id}`;
-    cardMainImg.src = `${pokeData.sprites.other["official-artwork"].front_default}`;
-    cardMainImg.setAttribute("data-src", `${pokeData.sprites.other["official-artwork"].front_default}`);
+    cardMainImg.src = "images/pokePlacHold.jpg";
     cardMainImg.alt = `${pokeData.name}`;
     // cardMainImg.setAttribute("loading", "lazy");
 
@@ -427,30 +421,5 @@ const app = {
   lowerCaseName: (string) => {
     return string.toLowerCase();
   },
-  lazyload: () => {
-    if (!!window.IntersectionObserver) {
-      console.log("I support Inserction Observer.")
-    }
-
-    // create a function
-    let myObserver = new IntersectionObserver((myListA, myObserver) => {
-      myListA.forEach(cupX => {
-        if (cupX.isIntersecting) {
-          cupX.target.src = cupX.target.dataset.src;
-          cupX.target.removeAttribute('data-src');
-          myObserver.unobserve(cupX.target);
-        }
-      });
-    }, {
-      rootMargin: "0px 0px -100px 0px"
-    });
-
-    // make a list of all images with a data source and send that list to myObserver
-    document.querySelectorAll('img[data-src]').forEach(img => {
-      myObserver.observe(img)
-    });
-
-
-  }
 }
 app.init();
