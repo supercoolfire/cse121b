@@ -158,11 +158,10 @@ const app = {
     divCardMain.append(cardMainImg);
     cardMainImg.className = "main";
     cardMainImg.id = `main${pokeData.id}`;
-    cardMainImg.src = `${pokeData.sprites.other["official-artwork"].front_default}`;
-    // cardMainImg.src = "images/pokePlacHold.jpg";
-    // cardMainImg.setAttribute("data-src", `${pokeData.sprites.other["official-artwork"].front_default}`);
+    cardMainImg.src = "images/pokePlacHold.jpg";
+    cardMainImg.setAttribute("data-src", `${pokeData.sprites.other["official-artwork"].front_default}`);
     cardMainImg.alt = `${pokeData.name}`;
-    cardMainImg.setAttribute("loading", "lazy");
+    // cardMainImg.setAttribute("loading", "lazy");
 
 
     // name
