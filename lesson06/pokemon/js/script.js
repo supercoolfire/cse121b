@@ -1,5 +1,3 @@
-"use strict";
-
 const app = {
   init: () => {
     document.getElementById("search").addEventListener("click", app.fetchThePokemon2);
@@ -11,7 +9,7 @@ const app = {
 
     let offset = 0;
     let limit = parseInt(document.getElementById("viewBy").value);
-    // app.showGallery(offset, limit);
+    app.showGallery(offset, limit);
 
     viewBy.addEventListener("change", () => {
       limit = parseInt(document.getElementById("viewBy").value);
@@ -421,6 +419,6 @@ const app = {
   },
   lowerCaseName: (string) => {
     return string.toLowerCase();
-  },
+  }
 }
 app.init();

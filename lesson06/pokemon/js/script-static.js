@@ -1,5 +1,3 @@
-"use strict";
-
 const app = {
   init: () => {
     document.getElementById("search").addEventListener("click", app.fetchThePokemon2);
@@ -420,6 +418,6 @@ const app = {
   },
   lowerCaseName: (string) => {
     return string.toLowerCase();
-  },
+  }
 }
 app.init();
